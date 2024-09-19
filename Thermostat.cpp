@@ -38,14 +38,25 @@ void Thermostat::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->getType() << endl;
-   cout << "Current temperature: " << this->temperature << endl;
-   cout << "Current state: " << this->state->toString() << endl;
+   cout << "Current temperature: " << this->getTemperature() << endl;
+   cout << "Current state: " << this->getStatus()->toString() << endl;
    cout << "======\n";
+}
+
+void Thermostat::update()
+{
 }
 
 void Thermostat::setTemperature(double temperature)
 {
    this->temperature = temperature;
+   // if(temperature < 18.2) { // too hot, time to cool
+   //    this->heat();
+   // } else if(temperature > 32.5) {
+   //    this->cool();
+   // } else {
+   //    this->idle();
+   // }
 }
 
 double Thermostat::getTemperature()

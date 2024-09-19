@@ -37,7 +37,7 @@ void Door::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->type << endl;
-   cout << "Device Status: " << this->state->toString() << endl;
+   cout << "Device Status: " << this->getStatus()->toString() << endl;
    cout << "======\n";
 }
 

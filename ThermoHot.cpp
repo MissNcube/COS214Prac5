@@ -23,7 +23,7 @@ void ThermoHot::heat(Thermostat *thermostat)
 
 void ThermoHot::idle(Thermostat *thermostat)
 {
-   cout << "|Thermostat is already hot :) |" << endl;
+   cout << "|Thermostat is already hot :), idling |" << endl;
    thermostat->setStatus(new ThermoIdle());
 }
 

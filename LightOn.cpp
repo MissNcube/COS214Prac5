@@ -27,3 +27,8 @@ string LightOn::toString()
 {
    return this->name;
 }
+
+void LightOn::toggle(Light *light)
+{
+   this->off(light);
+}

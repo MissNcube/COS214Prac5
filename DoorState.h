@@ -2,6 +2,8 @@
 #define DOORSTATE_H
 
 class Door;
+#include <string>
+using namespace std;
 
 class DoorState
 {

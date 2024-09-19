@@ -2,6 +2,8 @@
 #define THERMOSTATSTATE_H
 
 class Thermostat;
+#include <string>
+using namespace std;
 
 class ThermostatState 
 {

@@ -9,12 +9,12 @@ DoorLocked::DoorLocked()
 
 void DoorLocked::lock(Door *door)
 {
-   cout << "|Door already locked|";
+   cout << "|Door already locked|\n";
 }
 
 void DoorLocked::unlock(Door *door)
 {
-   cout << "|Unlocking door|";
+   cout << "|Unlocking door|\n";
    door->setStatus(new DoorUnlocked());
 }
 

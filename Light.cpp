@@ -32,7 +32,7 @@ void Light::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->getType() << endl;
-   cout << "Device state: " << this->state->toString() << endl;
+   cout << "Device state: " << this->getStatus()->toString() << endl;
    cout << "======\n";
 }
 
@@ -48,9 +48,5 @@ void Light::update()
 
 void Light::toggle()
 {
-   // if (dynamic_cast<LightOff*>(state)) {
-   //    state->on(this);  // If the light is off, turn it on
-   // } else if (dynamic_cast<LightOn*>(state)) {
-   //    state->off(this); // If the light is on, turn it off
-   // }
+   state->toggle(this);
 }

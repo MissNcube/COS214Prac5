@@ -4,7 +4,7 @@
 
 DoorUnlocked::DoorUnlocked()
 {
-   this->name = "Locked";
+   this->name = "Unlocked";
 }
 
 void DoorUnlocked::lock(Door *door)

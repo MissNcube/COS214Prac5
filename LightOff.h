@@ -15,6 +15,7 @@ public:
    void on(Light* light);
     void off(Light* light);
     string toString();
+    void toggle(Light* light);
 
 };
 

@@ -4,7 +4,7 @@
 
 LightOff::LightOff()
 {
-   this->name = "On";
+   this->name = "Off";
 }
 
 
@@ -23,4 +23,9 @@ void LightOff::off(Light *light)
 string LightOff::toString()
 {
    return this->name;
+}
+
+void LightOff::toggle(Light *light)
+{
+   this->on(light);
 }

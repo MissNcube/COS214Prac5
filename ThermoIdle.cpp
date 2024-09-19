@@ -24,7 +24,7 @@ void ThermoIdle::heat(Thermostat *thermostat)
 
 void ThermoIdle::idle(Thermostat *thermostat)
 {
-   cout << "|Thermostat doing nothing rn|" << endl;
+   cout << "|Thermostat doing nothing rn, idling|" << endl;
 }
 
 string ThermoIdle::toString()
