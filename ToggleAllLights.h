@@ -2,20 +2,20 @@
 #define TOGGLEALLLIGHTS_H
 
 #include "Command.h"
-#include "SmartDevice.h"
+#include "Light.h"
+#include <iostream>
 #include <vector>
 using namespace std;
 
 class ToggleAllLights : public Command
 {
 private:
-   vector<SmartDevice*> devices;
+   vector<Light*> lights;
 public:
-   ToggleAllLights(/* args */);
    ~ToggleAllLights();
    void execute();
-   void addLights(SmartDevice* light);
-   void removeLights(SmartDevice* light);
+   void addLights(Light* light);
+   void removeLights(Light* light);
 };
 
 

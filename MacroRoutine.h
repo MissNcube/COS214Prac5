@@ -3,15 +3,15 @@
 
 #include "Command.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
-class MacroRoutine: public Command
+
+class MacroRoutine
 {
 private:
   vector<Command*> commands;
 public:
-   MacroRoutine(/* args */);
-   ~MacroRoutine();
    void addCommand(Command* command);
    void removeCommand(Command* command);
    void execute(); // run commands in sequence
