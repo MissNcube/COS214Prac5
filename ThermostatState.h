@@ -2,6 +2,8 @@
 #define THERMOSTATSTATE_H
 
 class Thermostat;
+#include <string>
+using namespace std;
 
 class ThermostatState 
 {
@@ -14,6 +16,7 @@ public:
    virtual void cool(Thermostat* thermostat) = 0;
    virtual void heat(Thermostat* thermostat) = 0;
    virtual void idle(Thermostat* thermostat) = 0;
+   virtual string toString() = 0;
 };
 
 #endif
