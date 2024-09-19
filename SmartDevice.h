@@ -2,14 +2,17 @@
 #define SMARTDEVICE_H
 
 #include "Device.h"
+#include <string>
+using namespace std;
 
 class SmartDevice : public Device
 {
 private:
-   /* data */
+
 public:
-   SmartDevice(/* args */);
-   ~SmartDevice();
+  virtual string getType() = 0;
+  virtual void update() = 0;
+
 };
 
 

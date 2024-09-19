@@ -9,6 +9,11 @@ private:
 public:
    MotionSensor(/* args */);
    ~MotionSensor();
+   void addDevice(SmartDevice* device);
+   void removeDevice(SmartDevice* device);
+   void notifyDevices();
+   void detectChange(); // TODO: creativity needed
+
 };
 
 

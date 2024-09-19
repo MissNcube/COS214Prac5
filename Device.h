@@ -4,10 +4,11 @@
 class Device
 {
 private:
-   /* data */
+   
 public:
    Device(/* args */);
    ~Device();
+   virtual void display() = 0;
 };
 
 

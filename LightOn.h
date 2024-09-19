@@ -11,6 +11,9 @@ private:
 public:
    LightOn(/* args */);
    ~LightOn();
+    void on();
+    void off();
+
 };
 
 }

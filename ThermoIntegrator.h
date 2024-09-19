@@ -4,14 +4,24 @@
 
 #include "LegacyThermostat.h"
 #include "SmartDevice.h"
+class ThermostatState;
 
-class ThermoIntegrator : public LegacyThermostat, public SmartDevice // ADAPTER
+class ThermoIntegrator : public SmartDevice // ADAPTER
 {
 private:
-   /* data */
+   LegacyThermostat* legacyThermostat;
+   ThermostatState* currentState;
 public:
-   ThermoIntegrator(/* args */);
-   ~ThermoIntegrator();
+   ThermoIntegrator(LegacyThermostat* legacy);
+   ~ThermoIntegrator(); // delete legacy
+   string getType();
+   void setStatus(ThermostatState* state);
+   void update(); // when there is a temperature change, it will notify the thermostat to work
+   void setTemperature(double temperature);
+   double getTemperature();
+   void cool();
+   void heat();
+   void idle();
 };
 
 #endif

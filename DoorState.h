@@ -10,6 +10,8 @@ private:
 public:
    DoorState(/* args */);
    ~DoorState();
+   virtual void lock(Door* door) = 0;
+   virtual void unlock(Door* door) = 0;
 };
 
 

@@ -10,6 +10,10 @@ private:
 public:
    ThermoHot(/* args */);
    ~ThermoHot();
+      void cool(Thermostat* thermostat);
+   void heat(Thermostat* thermostat);
+   void idle(Thermostat* thermostat);
+
 };
 
 

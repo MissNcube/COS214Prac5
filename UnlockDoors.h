@@ -1,21 +1,24 @@
-#ifndef LOCKDOWN_H
-#define LOCKDOWN_H
+#ifndef UNLOCKDOORS_H
+#define UNLOCKDOORS_H
 
 #include "Command.h"
 #include "SmartDevice.h"
 #include <vector>
 using namespace std;
-class LockDown : public Command
+
+
+class UnlockDoors : public Command
 {
 private:
    vector<SmartDevice*> doors;
 public:
-   LockDown(/* args */);
-   ~LockDown();
+   UnlockDoors(/* args */);
+   ~UnlockDoors();
    void execute();
    void addDoor(SmartDevice* door);
    void removeDoor(SmartDevice* door);
 };
+
 
 
 

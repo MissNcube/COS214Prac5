@@ -4,13 +4,27 @@
 
 #include "Device.h"
 
+class SmartDevice;
+#include <vector>
+#include <string>
+using namespace std;
 class Room: public Device
 {
 private:
-   /* data */
+   vector<SmartDevice*> devices;
+   string name;
 public:
-   Room(/* args */);
-   ~Room();
+   Room(string name);
+   void addDevice(SmartDevice* device);
+   void removeDevice(SmartDevice* device);
+   void display(); // display all devices
+   void turnOn(); // command to turn on all devices in the room
+   void turnOff(); // command to turn off all devices in the room
+   void lock(); // lock all doors in the room
+   void unlock(); // unlock all doors in the room
+
+
+
 };
 
 

@@ -10,7 +10,10 @@ private:
 public:
    DoorLocked(/* args */);
    ~DoorLocked();
-};
+  void lock(Door* door);
+   void unlock(Door* door);
+   
+   };
 
 
 

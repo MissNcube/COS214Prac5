@@ -1,15 +1,21 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include <vector>
+#include <string>
+using namespace std;
 class SmartDevice;
+
 
 class Sensor // SUBJECT???
 {
 private:
-   /* data */
+   vector<SmartDevice*> devices;
 public:
-   Sensor(/* args */);
-   ~Sensor();
+   virtual void addDevice(SmartDevice* device) = 0;
+   virtual void removeDevice(SmartDevice* device) = 0;
+   virtual void notifyDevices() = 0;
+   virtual void detectChange() = 0;
 };
 
 

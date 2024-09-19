@@ -1,7 +1,6 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-class MacroRoutine;
 #include "SmartDevice.h"
 
 class Command
@@ -11,6 +10,7 @@ private:
 public:
    Command(/* args */);
    ~Command();
+   virtual void execute() = 0; // pure virtual function
 };
 
 

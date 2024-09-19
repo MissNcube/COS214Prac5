@@ -11,6 +11,10 @@ private:
 public:
    ThermoIdle(/* args */);
    ~ThermoIdle();
+   void cool(Thermostat* thermostat);
+   void heat(Thermostat* thermostat);
+   void idle(Thermostat* thermostat);
+
 };
 
 

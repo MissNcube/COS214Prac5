@@ -8,8 +8,9 @@ class LightState
 private:
    /* data */
 public:
-   LightState(/* args */);
    ~LightState();
+   virtual void on() = 0;
+   virtual void off() = 0;
 };
 
 

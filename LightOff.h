@@ -10,6 +10,9 @@ private:
 public:
    LightOff(/* args */);
    ~LightOff();
+       void on();
+    void off();
+
 };
 
 
