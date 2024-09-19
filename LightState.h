@@ -7,9 +7,9 @@ class LightState
 private:
 
 public:
-   virtual ~LightState();
    virtual void on(Light* light) = 0;
    virtual void off(Light* light) = 0;
+   virtual string toString() = 0;
 };
 
 

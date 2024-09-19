@@ -12,9 +12,9 @@ private:
    string name;
 public:
    LightOff();
-   ~LightOff();
    void on(Light* light);
     void off(Light* light);
+    string toString();
 
 };
 

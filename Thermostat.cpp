@@ -34,6 +34,15 @@ void Thermostat::setStatus(ThermostatState *state)
    this->state = state;
 }
 
+void Thermostat::display()
+{
+   cout << "======\n";
+   cout << "Device type: " << this->getType() << endl;
+   cout << "Current temperature: " << this->temperature << endl;
+   cout << "Current state: " << this->state->toString() << endl;
+   cout << "======\n";
+}
+
 void Thermostat::setTemperature(double temperature)
 {
    this->temperature = temperature;

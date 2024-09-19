@@ -28,6 +28,14 @@ LightState *Light::getStatus()
    return this->state;
 }
 
+void Light::display()
+{
+   cout << "======\n";
+   cout << "Device type: " << this->getType() << endl;
+   cout << "Device state: " << this->state->toString() << endl;
+   cout << "======\n";
+}
+
 string Light::getType()
 {
    return this->type;

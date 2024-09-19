@@ -18,6 +18,7 @@ public:
    ~LightOn();
    void on(Light* light);
    void off(Light* light);
+   string toString();
 
 };
 

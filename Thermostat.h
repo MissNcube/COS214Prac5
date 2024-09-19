@@ -16,6 +16,7 @@ class Thermostat : public SmartDevice
       ThermostatState* getStatus();
       string getType();
       void setStatus(ThermostatState* state);
+      void display();
       void update(); // when there is a temperature change, it will notify the thermostat to work
       void setTemperature(double temperature);
       double getTemperature();

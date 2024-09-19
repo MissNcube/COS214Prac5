@@ -16,7 +16,7 @@ public:
    ~DoorUnlocked();
    void lock(Door* door);
    void unlock(Door* door);
-   string getStatus();
+   string toString();
 };
 
 

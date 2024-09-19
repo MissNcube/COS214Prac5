@@ -9,15 +9,14 @@ class Door;
 
 class DoorLocked : public DoorState
 {
-private:
-   string name;
-public:
-   DoorLocked();
-  void lock(Door* door);
-   void unlock(Door* door);
-   string getStatus();
-   
-   };
+   private:
+      string name;
+   public:
+      DoorLocked();
+      void lock(Door* door);
+      void unlock(Door* door);
+      string toString();
+};
 
 
 

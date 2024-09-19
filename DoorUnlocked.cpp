@@ -18,7 +18,7 @@ void DoorUnlocked::unlock(Door *door)
    cout << "|Door already unlocked|" << endl;
 }
 
-string DoorUnlocked::getStatus()
+string DoorUnlocked::toString()
 {
    return name;
 }

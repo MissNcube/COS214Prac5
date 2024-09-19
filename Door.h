@@ -15,6 +15,7 @@ public:
    string getType();
    DoorState* getStatus();
    void setStatus(DoorState* state);
+   void display();
    void update(); // for observer to be updated based on what the sensor found. Sensor will notify then update
    // motion sensor will be used such that when the user is close to the door, unlock.
    void lock();

@@ -10,7 +10,8 @@ private:
 public:
    virtual void lock(Door* door) = 0;
    virtual void unlock(Door* door) = 0;
-   virtual string getStatus() = 0;
+   virtual string toString() = 0;
+   
 };
 
 

@@ -22,3 +22,8 @@ void LightOn::off(Light* light)
    cout << "|Light turned off|" << endl;
    light->setState(new LightOff());
 }
+
+string LightOn::toString()
+{
+   return this->name;
+}

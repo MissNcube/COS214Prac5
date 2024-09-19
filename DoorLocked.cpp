@@ -18,7 +18,7 @@ void DoorLocked::unlock(Door *door)
    door->setStatus(new DoorUnlocked());
 }
 
-string DoorLocked::getStatus()
+string DoorLocked::toString()
 {
    return this->name;
 }

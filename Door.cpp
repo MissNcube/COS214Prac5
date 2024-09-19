@@ -14,6 +14,11 @@ Door::~Door()
    delete this;
 }
 
+string Door::getType()
+{
+   return this->type;
+}
+
 DoorState *Door::getStatus()
 {
    return this->state;
@@ -26,6 +31,14 @@ void Door::setStatus(DoorState *state)
    }
 
    this->state = state;
+}
+
+void Door::display()
+{
+   cout << "======\n";
+   cout << "Device type: " << this->type << endl;
+   cout << "Device Status: " << this->state->toString() << endl;
+   cout << "======\n";
 }
 
 void Door::update()

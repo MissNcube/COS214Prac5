@@ -7,10 +7,7 @@ LightOff::LightOff()
    this->name = "On";
 }
 
-LightOff::~LightOff()
-{
-  // delete this;
-}
+
 
 void LightOff::on(Light *light)
 {
@@ -21,4 +18,9 @@ void LightOff::on(Light *light)
 void LightOff::off(Light *light)
 {
    cout << "|Light already off|" << endl;
+}
+
+string LightOff::toString()
+{
+   return this->name;
 }
