@@ -2,16 +2,19 @@
 #define LIGHTOFF_H
 
 #include "LightState.h"
-
+#include <iostream>
+#include <string>
+using namespace std;
+class Light;
 class LightOff : public LightState
 {
 private:
-   /* data */
+   string name;
 public:
-   LightOff(/* args */);
+   LightOff();
    ~LightOff();
-       void on();
-    void off();
+   void on(Light* light);
+    void off(Light* light);
 
 };
 

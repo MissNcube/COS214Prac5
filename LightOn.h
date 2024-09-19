@@ -3,19 +3,24 @@
 
 
 #include "LightState.h"
+#include <iostream>
+using namespace std;
+class Light;
+#include <string>
+
 
 class LightOn : public LightState
 {
 private:
-   /* data */
+     string name;
 public:
-   LightOn(/* args */);
+   LightOn();
    ~LightOn();
-    void on();
-    void off();
+   void on(Light* light);
+   void off(Light* light);
 
 };
 
-}
+
 
 #endif

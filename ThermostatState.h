@@ -14,6 +14,7 @@ public:
    virtual void cool(Thermostat* thermostat) = 0;
    virtual void heat(Thermostat* thermostat) = 0;
    virtual void idle(Thermostat* thermostat) = 0;
+   virtual string toString() = 0;
 };
 
 #endif

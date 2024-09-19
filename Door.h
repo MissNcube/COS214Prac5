@@ -10,7 +10,7 @@ private:
    DoorState* state;
    string type;
 public:
-   Door(/* args */);
+   Door();
    ~Door();
    string getType();
    DoorState* getStatus();

@@ -6,8 +6,6 @@ class Device
 private:
    
 public:
-   Device(/* args */);
-   ~Device();
    virtual void display() = 0;
 };
 

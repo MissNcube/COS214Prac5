@@ -17,15 +17,6 @@ public:
    string getType();
    void update(); // sensor will notify light to change when someone walks in the room.
    void toggle(); // toggle between on and off state
-
-   /*
-     if (dynamic_cast<LightOff*>(state)) {
-         state->on(this);  // If the light is off, turn it on
-      } else if (dynamic_cast<LightOn*>(state)) {
-         state->off(this); // If the light is on, turn it off
-      }
-   */
-
 };
 
 
