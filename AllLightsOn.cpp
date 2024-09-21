@@ -1,6 +1,7 @@
-#include "ToggleAllLights.h"
+#include "AllLightsOn.h"
 
-ToggleAllLights::~ToggleAllLights()
+
+AllLightsOn::~AllLightsOn()
 {
    for(auto light: lights) {
       if(light != NULL) {
@@ -10,24 +11,24 @@ ToggleAllLights::~ToggleAllLights()
    }
    delete this;
 }
-
-void ToggleAllLights::execute()
+void AllLightsOn::execute()
 {
-   cout << "||Toggling all lights||" << endl;
-   for (auto light : lights) {
-      light->toggle();
+   cout << "All lights are on" << endl;
+   for(Light* light : lights) {
+      if(light->getStatus()->toString() == "Off") {
+         light->toggle();
+      }
    }
-   cout << "||All lights toggled||" << endl;
 }
 
-void ToggleAllLights::addLights(Light *light)
+void AllLightsOn::addLights(Light *light)
 {
    if(light != NULL) {
       lights.push_back(light);
    }
 }
 
-void ToggleAllLights::removeLights(Light *light)
+void AllLightsOn::removeLights(Light *light)
 {
    if(light != NULL) {
       int i = 0;

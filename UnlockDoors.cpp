@@ -2,10 +2,10 @@
 
 UnlockDoors::~UnlockDoors()
 {
-   for(int i = 0; i < doors.size(); i++) {
-      if(doors[i] != NULL) {
-         delete doors[i];
-         doors[i] =  NULL;
+   for(Door* d: doors) {
+      if(d != NULL) {
+         delete d;
+         d =  NULL;
       }
    }
 
@@ -15,9 +15,9 @@ UnlockDoors::~UnlockDoors()
 void UnlockDoors::execute()
 {
    cout << "||Unlocking all doors||" << endl;
-   for(int i = 0; i < doors.size(); i++) {
-      if(doors[i] != NULL) {
-         doors[i]->unlock();
+   for(Door* d: doors) {
+      if(d != NULL) {
+         d->unlock();
       }
    }
    cout << "||All doors unlocked||" << endl;
@@ -33,9 +33,11 @@ void UnlockDoors::addDoor(Door *door)
 
 void UnlockDoors::removeDoor(Door *door)
 {
-   for(int i = 0; i < doors.size(); i++) {
-      if(doors[i] == door) {
+   int i = 0;
+   for(Door* d: doors) {
+      if(d == door) {
          doors.erase(doors.begin() + i);
       }
+      i++;
    }
 }

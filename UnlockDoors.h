@@ -13,7 +13,6 @@ class UnlockDoors : public Command
 private:
    vector<Door*> doors;
 public:
-   UnlockDoors(/* args */);
    ~UnlockDoors();
    void execute();
    void addDoor(Door* door);

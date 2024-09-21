@@ -2,10 +2,10 @@
 
 LockDown::~LockDown()
 {
-   for(int i = 0; i < doors.size(); i++) {
-      if(doors[i] != NULL) {
-         delete doors[i];
-         doors[i] = NULL;
+   for(Door* door : doors) {
+      if(door != NULL) {
+         delete door;
+         door = NULL;
       }
    }
    delete this;
@@ -14,8 +14,8 @@ LockDown::~LockDown()
 
 void LockDown::execute()
 {
-   for(int i = 0; i < doors.size(); i++) {
-      doors[i]->lock(); //should lock doors
+   for(Door* door : doors) {
+      door->lock(); //should lock doors
    }
 }
 
@@ -29,10 +29,12 @@ void LockDown::addDoor(Door *door)
 void LockDown::removeDoor(Door *door)
 {
    if(door != NULL) {
-      for(int i = 0; i < doors.size(); i++) {
-         if(doors[i] == door) {
+      int i = 0;
+      for(Door* d : doors) {
+         if(d == door) {
             doors.erase(doors.begin() + i);
          }
+         i++;
       }
    }
 

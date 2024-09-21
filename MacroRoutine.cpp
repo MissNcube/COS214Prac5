@@ -1,8 +1,8 @@
 #include "MacroRoutine.h"
 
-MacroRoutine::~MacroRoutine()
+MacroRoutine::MacroRoutine(string name)
 {
-   // Nothing to do here
+   this->name =  name;
 }
 
 void MacroRoutine::addCommand(Command *command)
@@ -15,19 +15,21 @@ void MacroRoutine::addCommand(Command *command)
 void MacroRoutine::removeCommand(Command *command)
 {
    if(command != NULL) {
-      for(int i = 0; i < commands.size(); i++) {
-         if(commands[i] == command) {
+      int i = 0;
+      for(Command* c : commands) {
+         if(c == command) {
             commands.erase(commands.begin() + i);
          }
+         i++;
       }
    }
 }
 
 void MacroRoutine::execute()
 {
-   cout << "||Macro routine executing||" << endl;
-   for(int i = 0; i < commands.size(); i++) {
-      commands[i]->execute();
+   cout << "||Macro routine: "<< this->name <<" executing||" << endl;
+   for(Command* c : commands) {
+      c->execute();
    }
    cout << "||Macro routine done||" << endl;
 }
