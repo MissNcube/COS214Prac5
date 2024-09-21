@@ -15,6 +15,13 @@
 #include "DoorLocked.h"
 #include "DoorUnlocked.h"
 #include "DoorState.h"
+#include "Command.h"
+#include "MacroRoutine.h"
+#include "LockDown.h"
+#include "ToggleAllLights.h"
+#include "UnlockDoors.h"
+#include "AllLightsOff.h"
+#include "AllLightsOn.h"
 
 
 void testStates() {
@@ -62,6 +69,68 @@ void testStates() {
    myThermo->idle();
 
 }
+
+
+void testCommand() {
+   cout << "==================Testing Command==================\n";
+
+    // Create some light and door objects
+    Light* livingRoomLight = new Light();
+    Light* kitchenLight = new Light();
+
+    Door* frontDoor = new Door();
+    Door* backDoor = new Door();
+
+    // Create command objects
+    ToggleAllLights* toggleLightsCmd = new ToggleAllLights();
+    toggleLightsCmd->addLights(livingRoomLight);
+    toggleLightsCmd->addLights(kitchenLight);
+
+    LockDown* lockDoorsCmd = new LockDown();
+    lockDoorsCmd->addDoor(frontDoor);
+    lockDoorsCmd->addDoor(backDoor);
+
+    UnlockDoors* unlockDoorsCmd = new UnlockDoors();
+    unlockDoorsCmd->addDoor(frontDoor);
+    unlockDoorsCmd->addDoor(backDoor);
+
+    AllLightsOn* lightsOn = new AllLightsOn();
+    lightsOn->addLights(livingRoomLight);
+    lightsOn->addLights(kitchenLight);
+
+    AllLightsOff* lightsOff = new AllLightsOff();
+    lightsOff->addLights(livingRoomLight);
+    lightsOff->addLights(kitchenLight);
+
+    // Create a macro routine and add commands to it
+    MacroRoutine* goodeveningRoutine = new MacroRoutine("Welcome Back");
+    goodeveningRoutine->addCommand(lightsOn);  // Turn off all lights
+    goodeveningRoutine->addCommand(unlockDoorsCmd);     // Lock all doors
+
+    cout << "\nExecuting Goodnight Routine...\n";
+    goodeveningRoutine->execute();  // Execute all commands in the routine
+
+    cout << "\nExecuting locking Doors Command...\n";
+    lockDoorsCmd->execute();    // Manually execute the unlock command
+
+   MacroRoutine* goodnightRoutine = new MacroRoutine("GoodNight");
+    goodnightRoutine->addCommand(lightsOff);  // Turn off all lights
+    goodnightRoutine->addCommand(lockDoorsCmd);     // Lock all doors
+
+    cout << "\nExecuting Goodnight Routine...\n";
+    goodnightRoutine->execute();  // Execute all commands in the routine
+
+    cout << "\nExecuting Unlock Doors Command...\n";
+    unlockDoorsCmd->execute();  
+
+    cout << "\nExecuting Toggle Lights Command...\n";
+    toggleLightsCmd->execute();
+   cout << "\nExecuting Toggle Lights Command... again\n";
+   toggleLightsCmd->execute();
+
+}
+
 int main() {
-   testStates();
+  // testStates();
+   testCommand();
 }
