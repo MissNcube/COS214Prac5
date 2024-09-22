@@ -15,6 +15,7 @@ public:
    ThermoIntegrator(LegacyThermostat* legacy);
    ~ThermoIntegrator(); // delete legacy
    string getType();
+   void display();
    void setStatus(ThermostatState* state);
    void update(); // when there is a temperature change, it will notify the thermostat to work
    void setTemperature(double temperature);

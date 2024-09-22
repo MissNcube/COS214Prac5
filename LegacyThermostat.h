@@ -10,10 +10,11 @@ private:
    double temperature;
    string type;
 public:
-   LegacyThermostat(/* args */);
+   LegacyThermostat();
    ~LegacyThermostat();
    void setTemp(double temp);
    double getTemp();
+   string getType();
 
 };
 
