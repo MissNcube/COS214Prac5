@@ -1,5 +1,6 @@
 #ifndef ROOM_H
 #define ROOM_H
+#include <iostream>
 
 
 #include "Device.h"
@@ -8,6 +9,8 @@ class SmartDevice;
 #include <vector>
 #include <string>
 using namespace std;
+
+#include "Sensor.h"
 class Room: public Device
 {
 private:

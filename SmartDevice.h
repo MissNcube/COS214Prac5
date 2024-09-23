@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 
+#include "Sensor.h"
 class SmartDevice : public Device
 {
 private:
