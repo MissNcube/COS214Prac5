@@ -144,6 +144,22 @@ void testIntegrator() {
    smartThermostat->setTemperature(25);
    smartThermostat->display();
 
+   smartThermostat->cool();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->display();
+
+   smartThermostat->idle();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->heat();
+   smartThermostat->heat();
+
+   smartThermostat->display();
+
+
 }
 
 int main() {

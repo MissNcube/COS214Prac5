@@ -8,7 +8,7 @@
 ThermoIntegrator::ThermoIntegrator(LegacyThermostat *legacy)
 {
    this->legacyThermostat =  legacy;
-   this->currentState = new ThermoIdle();
+   this->setStatus(new ThermoIdle());
 }
 
 ThermoIntegrator::~ThermoIntegrator()
@@ -24,7 +24,7 @@ string ThermoIntegrator::getType()
 
 void ThermoIntegrator::display()
 {
-    cout << "======\n";
+   cout << "======\n";
    cout << "Device type: " << this->legacyThermostat->getType() << endl;
    cout << "Current temperature: " << this->legacyThermostat->getTemp() << endl;
    cout << "Current state: " << this->currentState->toString() << endl;
@@ -55,5 +55,18 @@ double ThermoIntegrator::getTemperature()
 
 void ThermoIntegrator::cool()
 {
+   this->legacyThermostat->activateCooling();
+   currentState->cool(this);
+}
 
+void ThermoIntegrator::heat()
+{
+   this->legacyThermostat->activateHeating();
+   currentState->heat(this);
+}
+
+void ThermoIntegrator::idle()
+{
+   this->legacyThermostat->deactivateSystem();
+   currentState->idle(this);
 }

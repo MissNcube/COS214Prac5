@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <iostream>
 using namespace std;
 class LegacyThermostat // ADAPTEE
 {
@@ -15,6 +16,9 @@ public:
    void setTemp(double temp);
    double getTemp();
    string getType();
+   void activateCooling();
+   void activateHeating();
+   void deactivateSystem();
 
 };
 

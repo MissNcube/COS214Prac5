@@ -3,10 +3,10 @@
 
 
 #include "LegacyThermostat.h"
-#include "SmartDevice.h"
+#include "Thermostat.h"
 class ThermostatState;
 
-class ThermoIntegrator : public SmartDevice // ADAPTER
+class ThermoIntegrator : public Thermostat // ADAPTER
 {
 private:
    LegacyThermostat* legacyThermostat;

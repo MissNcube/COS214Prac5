@@ -25,3 +25,19 @@ string LegacyThermostat::getType()
 {
    return this->type;
 }
+
+void LegacyThermostat::activateCooling()
+{
+   cout << "Legacy Thermostat: Cooling activated" << endl;
+
+}
+
+void LegacyThermostat::activateHeating()
+{
+   cout << "Legacy Thermostat: Heating activated" << endl;
+}
+
+void LegacyThermostat::deactivateSystem()
+{
+   cout << "Legacy Thermostat: System deactivated" << endl;
+}
