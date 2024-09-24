@@ -19,9 +19,9 @@ string Door::getType()
    return this->type;
 }
 
-DoorState *Door::getStatus()
+string Door::getStatus()
 {
-   return this->state;
+   return this->state->toString();
 }
 
 void Door::setStatus(DoorState *state)
@@ -37,7 +37,7 @@ void Door::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->type << endl;
-   cout << "Device Status: " << this->getStatus()->toString() << endl;
+   cout << "Device Status: " << this->getStatus() << endl;
    cout << "======\n";
 }
 

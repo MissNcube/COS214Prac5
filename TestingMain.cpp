@@ -22,6 +22,8 @@
 #include "UnlockDoors.h"
 #include "AllLightsOff.h"
 #include "AllLightsOn.h"
+#include "ThermoIntegrator.h"
+#include "LegacyThermostat.h"
 
 
 void testStates() {
@@ -130,7 +132,38 @@ void testCommand() {
 
 }
 
+void testIntegrator() {
+   cout << "==================Testing Integrator==================\n";
+
+   LegacyThermostat* legacyThermostat = new LegacyThermostat();
+
+    // Create the adapter to make the legacy thermostat smart
+   ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
+
+   smartThermostat->display();
+   smartThermostat->setTemperature(25);
+   smartThermostat->display();
+
+   smartThermostat->cool();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->display();
+
+   smartThermostat->idle();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->heat();
+   smartThermostat->heat();
+
+   smartThermostat->display();
+
+
+}
+
 int main() {
   // testStates();
-   testCommand();
+  // testCommand();
+  testIntegrator();
 }

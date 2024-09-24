@@ -16,7 +16,7 @@ public:
    Light();
    ~Light();
    void setState(LightState* state);
-   LightState* getStatus();
+   string getStatus();
    void display();
    string getType();
    void update(); // sensor will notify light to change when someone walks in the room.

@@ -3,10 +3,10 @@
 
 
 #include "LegacyThermostat.h"
-#include "SmartDevice.h"
+#include "Thermostat.h"
 class ThermostatState;
 
-class ThermoIntegrator : public SmartDevice // ADAPTER
+class ThermoIntegrator : public Thermostat // ADAPTER
 {
 private:
    LegacyThermostat* legacyThermostat;
@@ -15,6 +15,7 @@ public:
    ThermoIntegrator(LegacyThermostat* legacy);
    ~ThermoIntegrator(); // delete legacy
    string getType();
+   void display();
    void setStatus(ThermostatState* state);
    void update(); // when there is a temperature change, it will notify the thermostat to work
    void setTemperature(double temperature);

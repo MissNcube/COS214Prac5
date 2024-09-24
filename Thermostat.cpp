@@ -16,9 +16,9 @@ Thermostat::~Thermostat()
    delete this;
 }
 
-ThermostatState *Thermostat::getStatus()
+string Thermostat::getStatus()
 {
-   return this->state;
+   return this->state->toString();
 }
 
 string Thermostat::getType()
@@ -39,7 +39,7 @@ void Thermostat::display()
    cout << "======\n";
    cout << "Device type: " << this->getType() << endl;
    cout << "Current temperature: " << this->getTemperature() << endl;
-   cout << "Current state: " << this->getStatus()->toString() << endl;
+   cout << "Current state: " << this->getStatus() << endl;
    cout << "======\n";
 }
 

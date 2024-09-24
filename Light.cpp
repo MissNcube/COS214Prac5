@@ -23,16 +23,16 @@ void Light::setState(LightState *state)
    this->state = state;
 }
 
-LightState *Light::getStatus()
+string Light::getStatus()
 {
-   return this->state;
+   return this->state->toString();
 }
 
 void Light::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->getType() << endl;
-   cout << "Device state: " << this->getStatus()->toString() << endl;
+   cout << "Device state: " << this->getStatus() << endl;
    cout << "======\n";
 }
 

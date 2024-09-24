@@ -13,7 +13,7 @@ public:
    Door();
    ~Door();
    string getType();
-   DoorState* getStatus();
+   string getStatus();
    void setStatus(DoorState* state);
    void display();
    void update(); // for observer to be updated based on what the sensor found. Sensor will notify then update
