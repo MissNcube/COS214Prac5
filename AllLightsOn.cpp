@@ -15,7 +15,7 @@ void AllLightsOn::execute()
 {
    cout << "All lights are on" << endl;
    for(Light* light : lights) {
-      if(light->getStatus()->toString() == "Off") {
+      if(light->getStatus() == "Off") {
          light->toggle();
       }
    }

@@ -138,7 +138,7 @@ void testIntegrator() {
    LegacyThermostat* legacyThermostat = new LegacyThermostat();
 
     // Create the adapter to make the legacy thermostat smart
-    ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
+   ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
 
    smartThermostat->display();
    smartThermostat->setTemperature(25);
