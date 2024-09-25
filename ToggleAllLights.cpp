@@ -2,13 +2,13 @@
 
 ToggleAllLights::~ToggleAllLights()
 {
-   for(auto light: lights) {
-      if(light != NULL) {
-         delete light;
-         light = NULL;
-      }
-   }
-   delete this;
+   // for(auto light: lights) {
+   //    if(light != NULL) {
+   //       delete light;
+   //       light = NULL;
+   //    }
+   // }
+   //delete this;
 }
 
 void ToggleAllLights::execute()

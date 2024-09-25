@@ -13,7 +13,7 @@ public:
    virtual void lock(Door* door) = 0;
    virtual void unlock(Door* door) = 0;
    virtual string toString() = 0;
-   
+   virtual ~DoorState();
 };
 
 

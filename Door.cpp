@@ -10,8 +10,11 @@ Door::Door()
 
 Door::~Door()
 {
-   delete this->state;
-   delete this;
+
+   if (this->state)
+   {
+      delete this->state; // Clean up state on destruction
+   }
 }
 
 string Door::getType()
@@ -26,7 +29,8 @@ string Door::getStatus()
 
 void Door::setStatus(DoorState *state)
 {
-   if(this->state) {
+   if (this->state)
+   {
       delete this->state;
    }
 

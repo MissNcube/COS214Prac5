@@ -3,13 +3,13 @@
 
 AllLightsOff::~AllLightsOff()
 {
-   for(auto light: lights) {
-      if(light != NULL) {
-         delete light;
-         light = NULL;
-      }
-   }
-   delete this;
+   // for(auto light: lights) {
+   //    if(light != NULL) {
+   //       delete light;
+   //       light = NULL;
+   //    }
+   // }
+   //delete this;
 }
 void AllLightsOff::execute()
 {
