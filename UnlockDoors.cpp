@@ -2,12 +2,12 @@
 
 UnlockDoors::~UnlockDoors()
 {
-   for(Door* d: doors) {
-      if(d != NULL) {
-         delete d;
-         d =  NULL;
-      }
-   }
+   // for(Door* d: doors) {
+   //    if(d != NULL) {
+   //       delete d;
+   //       d =  NULL;
+   //    }
+   // }
 
   // delete this;
 }

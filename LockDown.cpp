@@ -2,12 +2,12 @@
 
 LockDown::~LockDown()
 {
-   for(Door* door : doors) {
-      if(door != NULL) {
-         delete door;
-         door = NULL;
-      }
-   }
+   // for(Door* door : doors) {
+   //    if(door != NULL) {
+   //       delete door;
+   //       door = NULL;
+   //    }
+   // }
    //delete this;
 
 }

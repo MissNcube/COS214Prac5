@@ -11,7 +11,7 @@ private:
    string type;
 public:
    Door();
-  virtual ~Door();
+   ~Door();
    string getType();
    string getStatus();
    void setStatus(DoorState* state);

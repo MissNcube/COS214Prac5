@@ -179,6 +179,6 @@ void testIntegrator() {
 
 int main() {
    testStates();
-  // testCommand();
+   testCommand();
  // testIntegrator();
 }
