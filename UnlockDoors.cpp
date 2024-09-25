@@ -9,7 +9,7 @@ UnlockDoors::~UnlockDoors()
       }
    }
 
-   delete this;
+  // delete this;
 }
 
 void UnlockDoors::execute()

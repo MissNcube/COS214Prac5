@@ -70,8 +70,11 @@ void testStates() {
    myThermo->display();
    myThermo->idle();
 
-}
 
+   delete myDoor;
+   delete myLight;
+   delete myThermo;
+}
 
 void testCommand() {
    cout << "==================Testing Command==================\n";
@@ -130,6 +133,18 @@ void testCommand() {
    cout << "\nExecuting Toggle Lights Command... again\n";
    toggleLightsCmd->execute();
 
+   delete livingRoomLight;
+   delete kitchenLight;
+   delete frontDoor;
+   delete backDoor;
+   delete lockDoorsCmd;
+   delete unlockDoorsCmd;
+   delete lightsOn;
+   delete lightsOff;
+   delete toggleLightsCmd;
+   delete goodeveningRoutine;
+   delete goodnightRoutine;
+   
 }
 
 void testIntegrator() {
@@ -163,7 +178,7 @@ void testIntegrator() {
 }
 
 int main() {
-  // testStates();
+   testStates();
   // testCommand();
-  testIntegrator();
+ // testIntegrator();
 }

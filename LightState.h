@@ -13,6 +13,7 @@ public:
    virtual void off(Light* light) = 0;
    virtual string toString() = 0;
    virtual void toggle(Light* light) = 0;
+   virtual ~LightState();
 };
 
 

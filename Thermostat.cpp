@@ -12,8 +12,10 @@ Thermostat::Thermostat()
 
 Thermostat::~Thermostat()
 {
-   delete this->state;
-   delete this;
+   if (this->state)
+   {
+      delete this->state; // Clean up state on destruction
+   }
 }
 
 string Thermostat::getStatus()
@@ -28,7 +30,8 @@ string Thermostat::getType()
 
 void Thermostat::setStatus(ThermostatState *state)
 {
-   if(this->state) {
+   if (this->state)
+   {
       delete this->state;
    }
    this->state = state;

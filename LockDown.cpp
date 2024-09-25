@@ -8,7 +8,7 @@ LockDown::~LockDown()
          door = NULL;
       }
    }
-   delete this;
+   //delete this;
 
 }
 
