@@ -3,21 +3,24 @@
 #include "LightOn.h"
 #include "LightState.h"
 
-Light::Light() 
+Light::Light()
 {
-   this->type =  "Light";
+   this->type = "Light";
    this->state = new LightOff();
 }
 
 Light::~Light()
 {
-   delete this->state;
-   delete this;
+   if (this->state)
+   {
+      delete this->state; // Clean up state on destruction
+   } // delete this;
 }
 
 void Light::setState(LightState *state)
 {
-   if(this->state) {
+   if (this->state)
+   {
       delete this->state;
    }
    this->state = state;
@@ -43,7 +46,6 @@ string Light::getType()
 
 void Light::update()
 {
-
 }
 
 void Light::toggle()

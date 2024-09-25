@@ -13,7 +13,7 @@ private:
 
 public:
    Thermostat(); // initial state is idle
-   ~Thermostat();
+   virtual ~Thermostat();
    string getStatus();
    virtual string getType();
    virtual void setStatus(ThermostatState *state);

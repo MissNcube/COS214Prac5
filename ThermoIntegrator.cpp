@@ -8,13 +8,14 @@
 ThermoIntegrator::ThermoIntegrator(LegacyThermostat *legacy)
 {
    this->legacyThermostat =  legacy;
-   this->setStatus(new ThermoIdle());
+   this->currentState = new ThermoIdle();
 }
 
 ThermoIntegrator::~ThermoIntegrator()
 {
-   delete legacyThermostat;
-   delete currentState;
+   if(currentState) {
+      delete currentState;
+   }
 }
 
 string ThermoIntegrator::getType()
