@@ -174,11 +174,12 @@ void testIntegrator() {
 
    smartThermostat->display();
 
-
+   delete smartThermostat;
+   delete legacyThermostat;
 }
 
 int main() {
-   testStates();
-   testCommand();
- // testIntegrator();
+   // testStates();
+   // testCommand();
+ testIntegrator();
 }
