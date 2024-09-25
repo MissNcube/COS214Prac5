@@ -7,6 +7,7 @@ private:
 
 public:
    virtual void execute() = 0; // pure virtual function
+   virtual ~Command() {}
 };
 
 
