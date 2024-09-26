@@ -3,19 +3,19 @@
 
 AllLightsOff::~AllLightsOff()
 {
-   for(auto light: lights) {
-      if(light != NULL) {
-         delete light;
-         light = NULL;
-      }
-   }
-   delete this;
+   // for(auto light: lights) {
+   //    if(light != NULL) {
+   //       delete light;
+   //       light = NULL;
+   //    }
+   // }
+   //delete this;
 }
 void AllLightsOff::execute()
 {
    cout << "All lights are off" << endl;
    for(Light* light : lights) {
-      if(light->getStatus()->toString() == "On") {
+      if(light->getStatus() == "On") {
          light->toggle();
       }
    }

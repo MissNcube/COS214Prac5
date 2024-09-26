@@ -22,10 +22,15 @@
 #include "UnlockDoors.h"
 #include "AllLightsOff.h"
 #include "AllLightsOn.h"
+<<<<<<< HEAD
 #include "MotionSensor.h"
 #include "HeatSensor.h"
 #include "HomeSection.h"
 #include "Room.h"
+=======
+#include "ThermoIntegrator.h"
+#include "LegacyThermostat.h"
+>>>>>>> 0788fba28f7381bd87d79faf4710364b1fe4993d
 
 
 void testStates() {
@@ -72,8 +77,11 @@ void testStates() {
    myThermo->display();
    myThermo->idle();
 
-}
 
+   delete myDoor;
+   delete myLight;
+   delete myThermo;
+}
 
 void testCommand() {
    cout << "==================Testing Command==================\n";
@@ -132,6 +140,49 @@ void testCommand() {
    cout << "\nExecuting Toggle Lights Command... again\n";
    toggleLightsCmd->execute();
 
+   delete livingRoomLight;
+   delete kitchenLight;
+   delete frontDoor;
+   delete backDoor;
+   delete lockDoorsCmd;
+   delete unlockDoorsCmd;
+   delete lightsOn;
+   delete lightsOff;
+   delete toggleLightsCmd;
+   delete goodeveningRoutine;
+   delete goodnightRoutine;
+   
+}
+
+void testIntegrator() {
+   cout << "==================Testing Integrator==================\n";
+
+   LegacyThermostat* legacyThermostat = new LegacyThermostat();
+
+    // Create the adapter to make the legacy thermostat smart
+   ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
+
+   smartThermostat->display();
+   smartThermostat->setTemperature(25);
+   smartThermostat->display();
+
+   smartThermostat->cool();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->display();
+
+   smartThermostat->idle();
+   smartThermostat->display();
+
+   smartThermostat->heat();
+   smartThermostat->heat();
+   smartThermostat->heat();
+
+   smartThermostat->display();
+
+   delete smartThermostat;
+   delete legacyThermostat;
 }
 
 void testComposite()
@@ -242,9 +293,15 @@ void testObserver2()
 
 
 int main() {
+<<<<<<< HEAD
    //testStates();
    //testCommand();
    //testComposite();
    //testObserver();
    //testObserver2();
+=======
+   // testStates();
+   // testCommand();
+ testIntegrator();
+>>>>>>> 0788fba28f7381bd87d79faf4710364b1fe4993d
 }

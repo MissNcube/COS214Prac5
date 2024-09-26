@@ -13,7 +13,6 @@ private:
    string name;
 public:
    DoorUnlocked();
-   ~DoorUnlocked();
    void lock(Door* door);
    void unlock(Door* door);
    string toString();

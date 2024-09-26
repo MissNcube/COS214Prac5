@@ -3,36 +3,39 @@
 #include "LightOn.h"
 #include "LightState.h"
 
-Light::Light() 
+Light::Light()
 {
-   this->type =  "Light";
+   this->type = "Light";
    this->state = new LightOff();
 }
 
 Light::~Light()
 {
-   delete this->state;
-   delete this;
+   if (this->state)
+   {
+      delete this->state; // Clean up state on destruction
+   } // delete this;
 }
 
 void Light::setState(LightState *state)
 {
-   if(this->state) {
+   if (this->state)
+   {
       delete this->state;
    }
    this->state = state;
 }
 
-LightState *Light::getStatus()
+string Light::getStatus()
 {
-   return this->state;
+   return this->state->toString();
 }
 
 void Light::display()
 {
    cout << "======\n";
    cout << "Device type: " << this->getType() << endl;
-   cout << "Device state: " << this->getStatus()->toString() << endl;
+   cout << "Device state: " << this->getStatus() << endl;
    cout << "======\n";
 }
 

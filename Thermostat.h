@@ -6,26 +6,25 @@
 class ThermostatState;
 class Thermostat : public SmartDevice
 {
-   private:
-      ThermostatState* state;
-      double temperature;
-      string type;
-   public:
-      Thermostat(); // initial state is idle
-      ~Thermostat();
-      ThermostatState* getStatus();
-      string getType();
-      void setStatus(ThermostatState* state);
-      void display();
-      void update(); // when there is a temperature change, it will notify the thermostat to work
-      void setTemperature(double temperature);
-      double getTemperature();
-      void cool();
-      void heat();
-      void idle();
-      // be able to change state based on temperature
+private:
+   ThermostatState *state;
+   double temperature;
+   string type;
+
+public:
+   Thermostat(); // initial state is idle
+   virtual ~Thermostat();
+   string getStatus();
+   virtual string getType();
+   virtual void setStatus(ThermostatState *state);
+   virtual void display();
+   virtual void update(); // when there is a temperature change, it will notify the thermostat to work
+   virtual void setTemperature(double temperature);
+   virtual double getTemperature();
+   virtual void cool();
+   virtual void heat();
+   virtual void idle();
+   // be able to change state based on temperature
 };
-
-
 
 #endif
