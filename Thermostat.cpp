@@ -45,6 +45,24 @@ void Thermostat::display()
 
 void Thermostat::update()
 {
+      //react to sensor data
+   cout << "Thermostat: Received update from sensor!" << endl;
+
+
+   if (temperature <= 15.0) {     //cold
+      cout << "It's too cold, heating..." << endl;
+      this->heat();  //heat up
+   } 
+   else if (temperature > 32.5) {   //too hot
+      cout << "It's too hot, cooling..." << endl;
+      this->cool();  //cool down
+   } 
+   else {
+      cout << "Temperature is comfortable, idling..." << endl;
+      this->idle();  //nice temp in here
+   }
+
+   display();  //show state
 }
 
 void Thermostat::setTemperature(double temperature)

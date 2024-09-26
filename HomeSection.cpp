@@ -5,6 +5,14 @@ HomeSection::HomeSection(string name)
     this->name = name;
 }
 
+HomeSection::~HomeSection()
+{
+    for(Room* r : rooms)
+    {
+        delete r;
+    }
+}
+
 void HomeSection::addRoom(Room* room)
 {
     rooms.push_back(room);

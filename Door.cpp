@@ -43,6 +43,20 @@ void Door::display()
 
 void Door::update()
 {
+   cout << "Door: Received update from sensor!" << endl;
+
+   if(dynamic_cast<DoorUnlocked*>(this->state)) // If the door is unlocked
+   {
+      cout << "No motion detected nearby. Locking the door..." << endl;
+      this->lock();  //lock door if no one close by
+   }
+   else  //if door unlocked
+   {
+      cout << "Motion detected! Unlocking the door..." << endl;
+      this->unlock(); //unlcok it
+   }
+
+   display(); //display what curr state of door is 
 }
 
 void Door::lock()

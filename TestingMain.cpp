@@ -24,6 +24,8 @@
 #include "AllLightsOn.h"
 #include "MotionSensor.h"
 #include "HeatSensor.h"
+#include "HomeSection.h"
+#include "Room.h"
 
 
 void testStates() {
@@ -132,36 +134,96 @@ void testCommand() {
 
 }
 
-void testSomething()
+void testComposite()
 {
-   // Create some devices
-    Light* livingRoomLight = new Light();
-    Light* kitchenLight = new Light();
+       // Create a home section (e.g., "Living Area")
+    HomeSection* livingArea = new HomeSection("Living Area");
 
+    // Create rooms (e.g., "Living Room" and "Bedroom")
+    Room* livingRoom = new Room("Living Room");
+    Room* bedroom = new Room("Bedroom");
+
+    // Add rooms to the home section
+    livingArea->addRoom(livingRoom);
+    livingArea->addRoom(bedroom);
+
+    // Create smart devices (lights and doors)
+    SmartDevice* light1 = new Light();
+    SmartDevice* light2 = new Light();
+
+    SmartDevice* door1 = new Door();
+    SmartDevice* door2 = new Door();
+
+    // Add smart devices to rooms
+    livingRoom->addDevice(light1);
+    livingRoom->addDevice(door1);
+
+    bedroom->addDevice(light2);
+    bedroom->addDevice(door2);
+
+    // Test display (should display the rooms and the devices inside)
+    cout << "===== Displaying Home Section =====" << endl;
+    livingArea->display();
+
+    // Test turning on all lights in the home section
+    cout << "\n===== Turning On All Lights =====" << endl;
+    livingArea->turnOn();
+    livingArea->display(); // Display status after turning on
+
+    // Test turning off all lights in the home section
+    cout << "\n===== Turning Off All Lights =====" << endl;
+    livingArea->turnOff();
+    livingArea->display(); // Display status after turning off
+
+    // Test locking all doors in the home section
+    cout << "\n===== Locking All Doors =====" << endl;
+    livingArea->lock();
+    livingArea->display(); // Display status after locking doors
+
+    // Test unlocking all doors in the home section
+    cout << "\n===== Unlocking All Doors =====" << endl;
+    livingArea->unlock();
+    livingArea->display(); // Display status after unlocking doors
+}
+
+void testObserver()
+{
     // Create sensors
-    MotionSensor* motionSensor = new MotionSensor();
     HeatSensor* heatSensor = new HeatSensor();
+    MotionSensor* motionSensor = new MotionSensor();
 
-    // Attach devices to the motion sensor
-    motionSensor->addDevice(livingRoomLight);
-    motionSensor->addDevice(kitchenLight);
+    // Create observers (devices)
+    Thermostat* thermostat = new Thermostat();
+    Door* door = new Door();
 
-    // Attach devices to the heat sensor
-    heatSensor->addDevice(kitchenLight);
+    // Subscribe thermostat to heat sensor
+    heatSensor->addDevice(thermostat);
 
-    // Simulate sensor changes
-    motionSensor->detectChange();  // Will notify livingRoomLight and kitchenLight
-    heatSensor->detectChange();    // Will notify kitchenLight
+    // Subscribe door to motion sensor
+    motionSensor->addDevice(door);
 
-    // Cleanup
-    delete livingRoomLight;
-    delete kitchenLight;
-    delete motionSensor;
-    delete heatSensor;
+    // Simulate heat sensor detecting a temperature change
+    cout << "\n===== Heat Sensor Detects a Temperature Change =====" << endl;
+    thermostat->setTemperature(35.0); // High temperature
+    heatSensor->detectChange(); // Notifies thermostat to update
+
+    // Simulate motion sensor detecting motion near the door
+    cout << "\n===== Motion Sensor Detects Motion =====" << endl;
+    motionSensor->detectChange(); // Notifies door to update (e.g., unlock)
+
+    // Simulate another temperature change
+    cout << "\n===== Heat Sensor Detects Another Temperature Change =====" << endl;
+    thermostat->setTemperature(15.0); // Low temperature
+    heatSensor->detectChange(); // Thermostat will update to heat
+
+    // Simulate motion sensor detecting no motion
+    cout << "\n===== Motion Detected Near the Door =====" << endl;
+    motionSensor->detectChange(); // Can lock the door
 }
 
 int main() {
   // testStates();
    // testCommand();
-   testSomething();
+   testComposite();
+   //testObserver();
 }

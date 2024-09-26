@@ -13,10 +13,7 @@ private:
 public:
    HeatSensor(/* args */);
    ~HeatSensor();
-   void addDevice(SmartDevice* device);
-   void removeDevice(SmartDevice* device);
-   void notifyDevices();
-   void detectChange();
+   void detectChange() override;
 
 };
 

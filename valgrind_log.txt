@@ -1,0 +1,108 @@
+==37676== Memcheck, a memory error detector
+==37676== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==37676== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==37676== Command: ./TestingMain
+==37676== 
+==37676== 
+==37676== HEAP SUMMARY:
+==37676==     in use at exit: 592 bytes in 14 blocks
+==37676==   total heap usage: 75 allocs, 61 frees, 86,230 bytes allocated
+==37676== 
+==37676== 16 bytes in 1 blocks are indirectly lost in loss record 1 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x1284C5: __gnu_cxx::new_allocator<Room*>::allocate(unsigned long, void const*) (new_allocator.h:127)
+==37676==    by 0x1280FA: std::allocator_traits<std::allocator<Room*> >::allocate(std::allocator<Room*>&, unsigned long) (alloc_traits.h:464)
+==37676==    by 0x127D9B: std::_Vector_base<Room*, std::allocator<Room*> >::_M_allocate(unsigned long) (stl_vector.h:346)
+==37676==    by 0x127242: void std::vector<Room*, std::allocator<Room*> >::_M_realloc_insert<Room* const&>(__gnu_cxx::__normal_iterator<Room**, std::vector<Room*, std::allocator<Room*> > >, Room* const&) (vector.tcc:440)
+==37676==    by 0x126C05: std::vector<Room*, std::allocator<Room*> >::push_back(Room* const&) (stl_vector.h:1198)
+==37676==    by 0x125AFA: HomeSection::addRoom(Room*) (HomeSection.cpp:18)
+==37676==    by 0x137B05: testComposite() (TestingMain.cpp:148)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 16 bytes in 1 blocks are indirectly lost in loss record 2 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x131F7B: __gnu_cxx::new_allocator<SmartDevice*>::allocate(unsigned long, void const*) (new_allocator.h:127)
+==37676==    by 0x131BB0: std::allocator_traits<std::allocator<SmartDevice*> >::allocate(std::allocator<SmartDevice*>&, unsigned long) (alloc_traits.h:464)
+==37676==    by 0x1318C1: std::_Vector_base<SmartDevice*, std::allocator<SmartDevice*> >::_M_allocate(unsigned long) (stl_vector.h:346)
+==37676==    by 0x130E2E: void std::vector<SmartDevice*, std::allocator<SmartDevice*> >::_M_realloc_insert<SmartDevice* const&>(__gnu_cxx::__normal_iterator<SmartDevice**, std::vector<SmartDevice*, std::allocator<SmartDevice*> > >, SmartDevice* const&) (vector.tcc:440)
+==37676==    by 0x130981: std::vector<SmartDevice*, std::allocator<SmartDevice*> >::push_back(SmartDevice* const&) (stl_vector.h:1198)
+==37676==    by 0x12F959: Room::addDevice(SmartDevice*) (Room.cpp:20)
+==37676==    by 0x137C43: testComposite() (TestingMain.cpp:159)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 16 bytes in 1 blocks are indirectly lost in loss record 3 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x131F7B: __gnu_cxx::new_allocator<SmartDevice*>::allocate(unsigned long, void const*) (new_allocator.h:127)
+==37676==    by 0x131BB0: std::allocator_traits<std::allocator<SmartDevice*> >::allocate(std::allocator<SmartDevice*>&, unsigned long) (alloc_traits.h:464)
+==37676==    by 0x1318C1: std::_Vector_base<SmartDevice*, std::allocator<SmartDevice*> >::_M_allocate(unsigned long) (stl_vector.h:346)
+==37676==    by 0x130E2E: void std::vector<SmartDevice*, std::allocator<SmartDevice*> >::_M_realloc_insert<SmartDevice* const&>(__gnu_cxx::__normal_iterator<SmartDevice**, std::vector<SmartDevice*, std::allocator<SmartDevice*> > >, SmartDevice* const&) (vector.tcc:440)
+==37676==    by 0x130981: std::vector<SmartDevice*, std::allocator<SmartDevice*> >::push_back(SmartDevice* const&) (stl_vector.h:1198)
+==37676==    by 0x12F959: Room::addDevice(SmartDevice*) (Room.cpp:20)
+==37676==    by 0x137C8D: testComposite() (TestingMain.cpp:162)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 48 bytes in 1 blocks are indirectly lost in loss record 4 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137B21: testComposite() (TestingMain.cpp:151)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 48 bytes in 1 blocks are indirectly lost in loss record 5 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137B5E: testComposite() (TestingMain.cpp:152)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 48 bytes in 1 blocks are indirectly lost in loss record 6 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137B9B: testComposite() (TestingMain.cpp:154)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 48 bytes in 1 blocks are indirectly lost in loss record 7 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137BD8: testComposite() (TestingMain.cpp:155)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 64 bytes in 1 blocks are indirectly lost in loss record 8 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137991: testComposite() (TestingMain.cpp:143)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 64 bytes in 1 blocks are indirectly lost in loss record 9 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x137A5B: testComposite() (TestingMain.cpp:144)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 80 bytes in 2 blocks are indirectly lost in loss record 10 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x129B8F: LightOn::off(Light*) (LightOn.cpp:23)
+==37676==    by 0x129CC1: LightOn::toggle(Light*) (LightOn.cpp:33)
+==37676==    by 0x1293AF: Light::toggle() (Light.cpp:52)
+==37676==    by 0x129352: Light::update() (Light.cpp:47)
+==37676==    by 0x130557: Room::turnOff() (Room.cpp:86)
+==37676==    by 0x1261B0: HomeSection::turnOff() (HomeSection.cpp:57)
+==37676==    by 0x137E00: testComposite() (TestingMain.cpp:175)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 80 bytes in 2 blocks are indirectly lost in loss record 11 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x12495F: DoorLocked::unlock(Door*) (DoorLocked.cpp:18)
+==37676==    by 0x12460F: Door::unlock() (Door.cpp:69)
+==37676==    by 0x124533: Door::update() (Door.cpp:56)
+==37676==    by 0x13035D: Room::unlock() (Room.cpp:77)
+==37676==    by 0x126550: HomeSection::unlock() (HomeSection.cpp:73)
+==37676==    by 0x137F24: testComposite() (TestingMain.cpp:185)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== 592 (64 direct, 528 indirect) bytes in 1 blocks are definitely lost in loss record 12 of 12
+==37676==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==37676==    by 0x1378C7: testComposite() (TestingMain.cpp:140)
+==37676==    by 0x138759: main (TestingMain.cpp:227)
+==37676== 
+==37676== LEAK SUMMARY:
+==37676==    definitely lost: 64 bytes in 1 blocks
+==37676==    indirectly lost: 528 bytes in 13 blocks
+==37676==      possibly lost: 0 bytes in 0 blocks
+==37676==    still reachable: 0 bytes in 0 blocks
+==37676==         suppressed: 0 bytes in 0 blocks
+==37676== 
+==37676== For lists of detected and suppressed errors, rerun with: -s
+==37676== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

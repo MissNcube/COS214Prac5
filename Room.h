@@ -17,6 +17,7 @@ private:
    string name;
 public:
    Room(string name);
+   ~Room();
    void addDevice(SmartDevice* device);
    void removeDevice(SmartDevice* device);
    void display(); // display all devices

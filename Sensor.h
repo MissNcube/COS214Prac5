@@ -3,8 +3,10 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 #include "SmartDevice.h"
+#include "Device.h"
 class SmartDevice;
 
 
@@ -13,9 +15,10 @@ class Sensor // SUBJECT???
 private:
    vector<SmartDevice*> devices;
 public:
-   virtual void addDevice(SmartDevice* device) = 0;
-   virtual void removeDevice(SmartDevice* device) = 0;
-   virtual void notifyDevices() = 0;
+   ~Sensor();
+   virtual void addDevice(SmartDevice* device);
+   virtual void removeDevice(SmartDevice* device);
+   virtual void notifyDevices();
    virtual void detectChange() = 0;
 };
 

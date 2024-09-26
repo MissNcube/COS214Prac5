@@ -43,7 +43,8 @@ string Light::getType()
 
 void Light::update()
 {
-
+   cout << "Light: Received update from sensor!" << endl;
+   this->toggle(); //switches on or off
 }
 
 void Light::toggle()

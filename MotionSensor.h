@@ -8,16 +8,11 @@ using namespace std;
 class MotionSensor : public Sensor
 {
 private:
-   vector<SmartDevice*> devices;
    /* data */
 public:
    MotionSensor(/* args */);
    ~MotionSensor();
-   void addDevice(SmartDevice* device);
-   void removeDevice(SmartDevice* device);
-   void notifyDevices();
-   void detectChange(); // TODO: creativity needed
-
+   void detectChange() override; // TODO: creativity needed
 };
 
 
