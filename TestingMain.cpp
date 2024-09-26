@@ -221,9 +221,30 @@ void testObserver()
     motionSensor->detectChange(); // Can lock the door
 }
 
+void testObserver2()
+{
+    // Create a thermostat
+    Thermostat* thermostat = new Thermostat();
+
+    // Simulate different temperatures
+    thermostat->setTemperature(10.0); // Cold
+    thermostat->update(); // Should trigger heating
+
+    thermostat->setTemperature(35.0); // Hot
+    thermostat->update(); // Should trigger cooling
+
+    thermostat->setTemperature(20.0); // Comfortable
+    thermostat->update(); // Should idle
+
+    // Clean up
+    //delete thermostat;
+}
+
+
 int main() {
-  // testStates();
-   // testCommand();
-   testComposite();
+   //testStates();
+   //testCommand();
+   //testComposite();
    //testObserver();
+   //testObserver2();
 }

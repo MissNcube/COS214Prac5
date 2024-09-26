@@ -7,20 +7,22 @@ Room::Room(string name)
 
 Room::~Room()
 {
-    for(Device* d : devices)
+
+    for (auto device : devices) 
     {
-        delete d;
+        delete device;
     }
+    devices.clear();
+
 }
 
 void Room::addDevice(SmartDevice *device)
 {
-    if(device)
+    if(!device)
     {
-        devices.push_back(device);
-    }
-    else
         return;
+    }
+    devices.push_back(device);    
 }
 void Room::removeDevice(SmartDevice *device)
 {
@@ -83,6 +85,9 @@ void Room::turnOff()
 {
     cout << "Turn off all devices in room: " << name << endl;
         for (SmartDevice* device : devices) {
-        device->update();  // Calls the turnOff method of each device
+            if(device)
+            {
+                device->update();  // Calls the turnOff method of each device
+            }
         }
 }

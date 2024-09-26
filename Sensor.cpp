@@ -2,10 +2,16 @@
 
 Sensor::~Sensor()
 {
+    devices.clear();
 }
+
 
 void Sensor::addDevice(SmartDevice *device)
 {
+     if (!device)
+    {
+        return;
+    }
     devices.push_back(device);
 }
 
@@ -18,6 +24,7 @@ void Sensor::notifyDevices()
 {
     for (SmartDevice *d : devices)
     {
-        d->update();
+        if(d)
+            d->update();
     }
 }
