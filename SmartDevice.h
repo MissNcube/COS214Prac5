@@ -13,7 +13,8 @@ private:
 public:
   virtual string getType() = 0;
   virtual void update() = 0;
-
+  virtual void display() = 0;
+  
 };
 
 

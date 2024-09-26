@@ -3,6 +3,9 @@
 
 #include "SmartDevice.h"
 #include "LightState.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Light : public SmartDevice
 {
@@ -10,22 +13,14 @@ private:
    LightState* state;
    string type;
 public:
-   Light(/* args */);
+   Light();
    ~Light();
    void setState(LightState* state);
    LightState* getStatus();
+   void display();
    string getType();
    void update(); // sensor will notify light to change when someone walks in the room.
    void toggle(); // toggle between on and off state
-
-   /*
-     if (dynamic_cast<LightOff*>(state)) {
-         state->on(this);  // If the light is off, turn it on
-      } else if (dynamic_cast<LightOn*>(state)) {
-         state->off(this); // If the light is on, turn it off
-      }
-   */
-
 };
 
 

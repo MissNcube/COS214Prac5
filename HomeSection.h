@@ -2,7 +2,7 @@
 #define HOMESECTION_H
 
 #include <iostream>
-
+#include "Room.h"
 #include "Device.h"
 class Room;
 #include <vector>
@@ -28,7 +28,7 @@ public:
 
 };
 
-}
+
 
 
 #endif

@@ -2,19 +2,18 @@
 #define LOCKDOWN_H
 
 #include "Command.h"
-#include "SmartDevice.h"
+#include "Door.h"
 #include <vector>
 using namespace std;
 class LockDown : public Command
 {
 private:
-   vector<SmartDevice*> doors;
+   vector<Door*> doors;
 public:
-   LockDown(/* args */);
    ~LockDown();
    void execute();
-   void addDoor(SmartDevice* door);
-   void removeDoor(SmartDevice* door);
+   void addDoor(Door* door);
+   void removeDoor(Door* door);
 };
 
 

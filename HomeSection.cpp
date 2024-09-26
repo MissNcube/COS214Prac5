@@ -52,7 +52,7 @@ void HomeSection::turnOff()
 
 void HomeSection::lock()
 {
-     cout << "Locking all doors in the section: " << name << endl;
+    cout << "Locking all doors in the section: " << name << endl;
     for (Room* room : rooms) {
         room->lock();  // Locks all doors in each room
     }

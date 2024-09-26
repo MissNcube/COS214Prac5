@@ -2,7 +2,8 @@
 #define THERMOSTAT_H
 
 #include "SmartDevice.h"
-#include "ThermostatState.h"
+
+class ThermostatState;
 class Thermostat : public SmartDevice
 {
    private:
@@ -10,11 +11,12 @@ class Thermostat : public SmartDevice
       double temperature;
       string type;
    public:
-      Thermostat(/* args */); // initial state is idle
+      Thermostat(); // initial state is idle
       ~Thermostat();
       ThermostatState* getStatus();
       string getType();
       void setStatus(ThermostatState* state);
+      void display();
       void update(); // when there is a temperature change, it will notify the thermostat to work
       void setTemperature(double temperature);
       double getTemperature();

@@ -18,7 +18,8 @@ void Room::removeDevice(SmartDevice *device)
 {
     if(device)
     {
-        for(int i = 0; i < devices.size(); i++)
+    for (size_t i = 0; i < devices.size(); i++)
+
         {
             if(devices[i] == device)
             {
@@ -46,12 +47,24 @@ void Room::turnOn()
 
 void Room::lock()
 {
+    cout << "Locking all doors in " << name << endl;
+    for (SmartDevice* device : devices) {
+        device->update();
+    }
+}
 
+void Room::unlock()
+{
+    cout << "Unlocking all doors in " << name << endl;
+    for (SmartDevice* device : devices) {
+        device->update();
+    }
 }
 
 void Room::turnOff()
 {
     cout << "Turn off  all devices in room: " << name << endl;
         for (SmartDevice* device : devices) {
-        device->turnOff();  // Calls the turnOff method of each device
+        device->update();  // Calls the turnOff method of each device
+        }
 }

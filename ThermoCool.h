@@ -2,16 +2,21 @@
 #define THERMOCOOL_H
 
 #include "ThermostatState.h"
+#include <iostream>
+#include <string>
+using namespace std;
+class Thermostat;
+
 class ThermoCool : public ThermostatState
 {
 private:
-   /* data */
+   string name;
 public:
-   ThermoCool(/* args */);
-   ~ThermoCool();
+   ThermoCool();
    void cool(Thermostat* thermostat);
    void heat(Thermostat* thermostat);
    void idle(Thermostat* thermostat);
+   string toString();
 
 };
 

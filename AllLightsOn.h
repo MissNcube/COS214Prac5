@@ -1,22 +1,23 @@
-#ifndef TOGGLEALLLIGHTS_H
-#define TOGGLEALLLIGHTS_H
+#ifndef ALLLIGHTSON_H
+#define ALLLIGHTSON_H
 
+#include <iostream>
 #include "Command.h"
 #include "Light.h"
-#include <iostream>
 #include <vector>
 using namespace std;
 
-class ToggleAllLights : public Command
+class AllLightsOn : public Command
 {
 private:
    vector<Light*> lights;
 public:
-   ~ToggleAllLights();
+   ~AllLightsOn();
    void execute();
    void addLights(Light* light);
    void removeLights(Light* light);
 };
+
 
 
 #endif

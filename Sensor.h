@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+#include "SmartDevice.h"
 class SmartDevice;
 
 

@@ -1,9 +1,8 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <iostream>
-
-
 #include "Device.h"
+#include "SmartDevice.h"
 
 class SmartDevice;
 #include <vector>
