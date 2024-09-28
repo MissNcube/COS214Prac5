@@ -22,15 +22,11 @@
 #include "UnlockDoors.h"
 #include "AllLightsOff.h"
 #include "AllLightsOn.h"
-<<<<<<< HEAD
-#include "MotionSensor.h"
-#include "HeatSensor.h"
-#include "HomeSection.h"
-#include "Room.h"
-=======
 #include "ThermoIntegrator.h"
 #include "LegacyThermostat.h"
->>>>>>> 0788fba28f7381bd87d79faf4710364b1fe4993d
+#include "HeatSensor.h"
+#include "MotionSensor.h"
+#include "HomeSection.h"
 
 
 void testStates() {
@@ -293,15 +289,10 @@ void testObserver2()
 
 
 int main() {
-<<<<<<< HEAD
-   //testStates();
-   //testCommand();
-   //testComposite();
-   //testObserver();
-   //testObserver2();
-=======
    // testStates();
    // testCommand();
- testIntegrator();
->>>>>>> 0788fba28f7381bd87d79faf4710364b1fe4993d
+   // testIntegrator();
+   testComposite();
+   testObserver();
+   testObserver2();
 }
