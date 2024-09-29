@@ -7,6 +7,7 @@ private:
    
 public:
    virtual void display() = 0;
+   //virtual ~Device();
 };
 
 

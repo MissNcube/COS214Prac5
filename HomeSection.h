@@ -16,7 +16,7 @@ private:
    string name;
 public:
    HomeSection(string name);
-   ~HomeSection();
+   virtual ~HomeSection();
 
    void addRoom(Room* room);
    void removeRoom(Room* room);

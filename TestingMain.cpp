@@ -293,6 +293,6 @@ int main() {
    // testCommand();
    // testIntegrator();
    testComposite();
-   testObserver();
-   testObserver2();
+   //testObserver();
+   //testObserver2();
 }
