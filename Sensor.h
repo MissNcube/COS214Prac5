@@ -15,7 +15,7 @@ class Sensor // SUBJECT???
 private:
    vector<SmartDevice*> devices;
 public:
-   ~Sensor();
+   virtual ~Sensor();
    virtual void addDevice(SmartDevice* device);
    virtual void removeDevice(SmartDevice* device);
    virtual void notifyDevices();

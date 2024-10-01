@@ -29,8 +29,43 @@
 #include <iostream>
 using namespace std;
 
+// DEMO MAIN STUFF
+#include <iostream>
+#include <iomanip> // for std::setw
+#include <chrono>
+#include <thread>
+
+// Color codes
+#define RESET "\033[0m"
+#define UNDERLINE "\033[4m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define CYAN "\033[36m"
+#define MAGENTA "\033[35m"
+#define CYAN "\033[36m"
+#define WHITE "\033[37m"
+#define BOLD "\033[1m"
+
+void printHeader(const std::string &title)
+{
+    // std::cout << BOLD << CYAN << std::setw(50) << std::setfill('=') << "\n" << RESET;
+    std::cout << BOLD << BLUE << std::setw(25) << title << RESET << "\n";
+    // std::cout << BOLD << CYAN << std::setw(50) << std::setfill('=') << "\n" << RESET;
+}
+void typewriterEffect(const string &text, int delay)
+{
+    for (const char &c : text)
+    {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(delay));
+    }
+}
+
 int main()
 {
+
 
     return 0;
 }
