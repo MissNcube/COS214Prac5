@@ -65,7 +65,33 @@ void typewriterEffect(const string &text, int delay)
 
 int main()
 {
+    
+    cout << endl
+         << endl
+         << RESET << endl;
+    typewriterEffect(GREEN BOLD "╔═══════════════════════════════════════════════════════════════════════╗\n", 30);
 
+    // Middle text
+    typewriterEffect("║                      Welcome to LEBO_DREY'S SMART HOME...          ║\n", 30);
+
+    // Bottom border
+    typewriterEffect("╚═══════════════════════════════════════════════════════════════════════╝\n", 30);
+
+    typewriterEffect(YELLOW BOLD "Let's check our cool home system, shall we..??", 30);
+    cout << endl
+         << endl;
+    typewriterEffect(YELLOW BOLD "Loading....", 50);
+
+    cout << RESET << endl
+         << endl;
+
+    typewriterEffect(YELLOW BOLD "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF", 50);
+
+    cout << RESET << endl
+         << endl;
+
+    cout << endl
+         << endl;
 
     return 0;
 }
