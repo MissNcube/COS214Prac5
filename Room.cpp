@@ -8,11 +8,11 @@ Room::Room(string name)
 Room::~Room()
 {
 
-    for (auto device : devices) 
-    {
-        delete device;
-    }
-    devices.clear();
+    // for (auto device : devices) 
+    // {
+    //     delete device;
+    // }
+    // devices.clear();
 
 }
 

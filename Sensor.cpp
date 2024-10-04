@@ -2,7 +2,7 @@
 
 Sensor::~Sensor()
 {
-    devices.clear();
+    //devices.clear();
 }
 
 

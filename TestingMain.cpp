@@ -231,6 +231,14 @@ void testComposite()
     cout << "\n===== Unlocking All Doors =====" << endl;
     livingArea->unlock();
     livingArea->display(); // Display status after unlocking doors
+
+   delete livingArea;
+   delete livingRoom;
+   delete bedroom;
+   delete light1;
+   delete light2;
+   delete door1;
+   delete door2;
 }
 
 void testObserver()
@@ -266,6 +274,11 @@ void testObserver()
     // Simulate motion sensor detecting no motion
     cout << "\n===== Motion Detected Near the Door =====" << endl;
     motionSensor->detectChange(); // Can lock the door
+
+   delete heatSensor;
+   delete motionSensor;
+   delete thermostat;
+   delete door;
 }
 
 void testObserver2()
@@ -284,7 +297,7 @@ void testObserver2()
     thermostat->update(); // Should idle
 
     // Clean up
-    //delete thermostat;
+    delete thermostat;
 }
 
 
@@ -292,7 +305,7 @@ int main() {
    // testStates();
    // testCommand();
    // testIntegrator();
-   testComposite();
-   //testObserver();
+   //testComposite();
+   testObserver();
    //testObserver2();
 }

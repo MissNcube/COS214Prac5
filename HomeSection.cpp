@@ -7,9 +7,9 @@ HomeSection::HomeSection(string name)
 
 HomeSection::~HomeSection()
 {
-    for (auto room : rooms) {
-        delete room;
-    }
+    // for (auto room : rooms) {
+    //     delete room;
+    // }
 }
 
 void HomeSection::addRoom(Room* room)
