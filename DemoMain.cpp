@@ -330,15 +330,24 @@ int main() {
     heatSensor->addDevice(thermostat);
     motionSensor->addDevice(door);
 
-    std::cout << "\n===== Heat Sensor Detects a Temperature Change =====" << std::endl;
+     typewriterEffect(BLUE BOLD "================== Heat Sensor Detects a Temperature Change of 35 ==================", 30);
+     cout << RESET << endl << endl ;
+
     thermostat->setTemperature(35.0);
     heatSensor->detectChange();
-    std::cout << "\n===== Motion Sensor Detects Motion =====" << std::endl;
+
+    typewriterEffect(BLUE BOLD "================== Motion Sensor Detects Motion ==================", 30);
+     cout << RESET << endl << endl ;
+
     motionSensor->detectChange();
-    std::cout << "\n===== Heat Sensor Detects Another Temperature Change =====" << std::endl;
+    typewriterEffect(BLUE BOLD "================== Heat Sensor Detects Another Temperature Change of 15 ==================", 30);
+     cout << RESET << endl << endl ;
+
     thermostat->setTemperature(15.0);
     heatSensor->detectChange();
-    std::cout << "\n===== Motion Detected Near the Door =====" << std::endl;
+
+    typewriterEffect(BLUE BOLD "================== Motion Detected Near the Door ==================", 30);
+     cout << RESET << endl << endl ;
     motionSensor->detectChange();
 
     delete heatSensor;
@@ -346,5 +355,7 @@ int main() {
     delete thermostat;
     delete door;
 
+    typewriterEffect(RED BOLD UNDERLINE" <<<<<<<<<<<<< THANK YOU FOR STOPPING BY OUR HOME, SEE YOU SOON >>>>>>>>>>>>>", 30);
+     cout << RESET << endl << endl << RESET ;
     return 0;
 }
