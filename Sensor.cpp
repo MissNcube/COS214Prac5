@@ -20,7 +20,7 @@ void Sensor::removeDevice(SmartDevice *device)
     devices.erase(remove(devices.begin(), devices.end(), device), devices.end());
 }
 
-void Sensor::notifyDevices()
+void Sensor:: notifyDevices()
 {
     for (SmartDevice *d : devices)
     {
