@@ -99,8 +99,12 @@ int main() {
     std::cout << CYAN << "##############...LETS SEE THE LIGHTS...##############\n" << RESET <<endl;
     Light* myLight = new Light();
     myLight->display();
+
+    cout << UNDERLINE<< "---------- Switch lights on ----------" << RESET << endl << endl;
     myLight->toggle();
     myLight->display();
+    cout << endl;
+    cout << UNDERLINE<< "---------- Switch lights off ----------" << RESET << endl << endl;
     myLight->toggle();
     myLight->display();
     cout << endl;
@@ -109,8 +113,12 @@ int main() {
     std::cout << CYAN << "##############...LETS SEE THE DOORS...##############\n" << RESET <<endl;
     Door* myDoor = new Door();
     myDoor->display();
+    cout << endl;
+    cout << UNDERLINE<< "---------- Lock doors ----------" << RESET << endl << endl;
     myDoor->lock();
     myDoor->display();
+    cout << endl;
+    cout << UNDERLINE<< "---------- Unlock doors ----------" << RESET << endl << endl;
     myDoor->unlock();
     myDoor->display();
     cout << endl;
@@ -119,13 +127,34 @@ int main() {
     std::cout << CYAN << "##############...LETS SEE THE THERMOSTAT...##############\n" << RESET <<endl;
     Thermostat* myThermo = new Thermostat();
     myThermo->display();
+
+    cout << endl;
+    cout << UNDERLINE<< "---------- Cool the thermostat ----------" << RESET << endl << endl;
+
     myThermo->cool();
     myThermo->display();
+
+    cout << endl;
+    cout << UNDERLINE<< "---------- Heat up the thermostat ----------" << RESET << endl << endl;
+
+
     myThermo->heat();
+
+    cout << endl;
+    cout << UNDERLINE<< "---------- Set thermostat temp to 35 ----------" << RESET << endl << endl;
+
     myThermo->setTemperature(35);
     myThermo->display();
+
+     cout << endl;
+    cout << UNDERLINE<< "---------- Set thermostat temp to 15 ----------" << RESET << endl << endl;
+
     myThermo->setTemperature(15);
     myThermo->display();
+
+    cout << endl;
+    cout << UNDERLINE<< "---------- Idle the thermostat ----------" << RESET << endl << endl;
+
     myThermo->idle();
 
     delete myDoor;
@@ -135,7 +164,7 @@ int main() {
     // ==================Testing Command==================
     cout << endl;
     typewriterEffect(MAGENTA BOLD "================== SMART HOME COMMANDS ==================", 30);
-cout << RESET << endl << endl ;
+     cout << RESET << endl << endl ;
 
     Light* livingRoomLight = new Light();
     Light* kitchenLight = new Light();
@@ -165,27 +194,38 @@ cout << RESET << endl << endl ;
      typewriterEffect(MAGENTA BOLD "================== WELCOME BACK HOME ROUTINE ==================", 30);
      cout << RESET << endl << endl ;
     MacroRoutine* goodeveningRoutine = new MacroRoutine("Welcome Back");
+
     goodeveningRoutine->addCommand(lightsOn);
+
+     cout << endl;
+    cout << UNDERLINE<< GREEN<<"---------- ROUTINE UNLOCKS ALL DOORS ----------" << RESET << endl << endl;
+
     goodeveningRoutine->addCommand(unlockDoorsCmd);
     goodeveningRoutine->execute();
 
-    std::cout << "\nExecuting locking Doors Command...\n";
+    cout << endl;
+    cout << UNDERLINE<< GREEN<<"---------- ROUTINE LOCKS ALL DOORS ----------" << RESET << endl << endl;
     lockDoorsCmd->execute();
      cout << endl;
-     typewriterEffect(MAGENTA BOLD "================== GOODNIGHT ROUTINE ==================", 30);
+
+
+     typewriterEffect(MAGENTA BOLD "================== GOODNIGHT MACROROUTINE ==================", 30);
      cout << RESET << endl << endl ;
 
     MacroRoutine* goodnightRoutine = new MacroRoutine("GoodNight");
     goodnightRoutine->addCommand(lightsOff);
     goodnightRoutine->addCommand(lockDoorsCmd);
+
+    cout << endl;
+    cout << UNDERLINE<< GREEN<<  "---------- EXECUTING GOODNIGHT ROUTINE ----------" << RESET << endl << endl;
+
     goodnightRoutine->execute();
 
-    std::cout << "\nExecuting Unlock Doors Command...\n";
+
+    std::cout << BOLD << UNDERLINE << GREEN <<"\nExecuting Unlock Doors Command...\n" << RESET << endl;
     unlockDoorsCmd->execute();
 
-    std::cout << "\nExecuting Toggle Lights Command...\n";
-    toggleLightsCmd->execute();
-    std::cout << "\nExecuting Toggle Lights Command... again\n";
+    std::cout << BOLD << UNDERLINE << GREEN <<"\nExecuting Toggle Lights Command...\n" << RESET << endl;
     toggleLightsCmd->execute();
 
     delete livingRoomLight;
@@ -209,24 +249,24 @@ cout << RESET << endl << endl ;
     ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
 
     smartThermostat->display();
-    cout << YELLOW << endl <<" ***** set temperature to 25 ***** "  << RESET << endl; 
+    cout << YELLOW << BOLD<< endl <<" ***** set temperature to 25 ***** "  << RESET << endl; 
 
     smartThermostat->setTemperature(25);
     smartThermostat->display();
 
-    cout << YELLOW << endl <<" ***** set to cool ***** "  << RESET << endl;
+    cout << YELLOW << BOLD << endl <<" ***** set to cool ***** "  << RESET << endl;
     smartThermostat->cool();
     smartThermostat->display();
 
-    cout << YELLOW << endl << " ***** set to heat ***** "  << RESET << endl;
+    cout << YELLOW << BOLD<< endl << " ***** set to heat ***** "  << RESET << endl;
     smartThermostat->heat();
     smartThermostat->display();
 
-    cout << YELLOW << endl <<" ***** idle the thermostat ***** "  << RESET << endl;
+    cout << YELLOW << BOLD<< endl <<" ***** idle the thermostat ***** "  << RESET << endl;
     smartThermostat->idle();
     smartThermostat->display();
 
-    cout << YELLOW << endl << " ***** set to heat ***** "  << RESET << endl;
+    cout << YELLOW << BOLD << endl << " ***** set to heat ***** "  << RESET << endl;
     smartThermostat->heat();
     smartThermostat->display();
 
@@ -253,18 +293,18 @@ cout << RESET << endl << endl ;
     bedroom->addDevice(light2);
     bedroom->addDevice(door2);
 
-    std::cout << "===== Displaying Home Section =====" << std::endl;
+    std::cout << UNDERLINE << RED << BOLD << "===== DISPLAYING HOME SECTION =====" << RESET << std::endl << endl;
     livingArea->display();
-    std::cout << "\n===== Turning On All Lights =====" << std::endl;
+    std::cout << UNDERLINE << RED << BOLD <<"\n===== TURNING ON ALL LIGHTS =====" << RESET << std::endl  << endl;
     livingArea->turnOn();
     livingArea->display();
-    std::cout << "\n===== Turning Off All Lights =====" << std::endl;
+    std::cout << UNDERLINE << RED << BOLD <<"\n===== TURNING OFF ALL LIGHTS =====" << RESET << std::endl << endl;
     livingArea->turnOff();
     livingArea->display();
-    std::cout << "\n===== Locking All Doors =====" << std::endl;
+    std::cout << UNDERLINE << RED << BOLD <<"\n===== LOCKING ALL DOORS =====" << RESET << std::endl << endl;
     livingArea->lock();
     livingArea->display();
-    std::cout << "\n===== Unlocking All Doors =====" << std::endl;
+    std::cout << UNDERLINE << RED << BOLD << "\n===== UNLOCKING ALL DOORS =====" << RESET << std::endl << endl;
     livingArea->unlock();
     livingArea->display();
 
@@ -275,6 +315,8 @@ cout << RESET << endl << endl ;
     delete light2;
     delete door1;
     delete door2;
+
+    cout << endl << endl;
 
     // ==================Testing Observer==================
      typewriterEffect(MAGENTA BOLD "================== OBSERVING THE SENSORS IN OUR SMART HOME ==================", 30);
