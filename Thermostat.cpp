@@ -46,6 +46,20 @@ void Thermostat::display()
    cout << "======\n";
 }
 
+/**
+ * @brief Reacts to changes received from a connected sensor.
+ * 
+ * This method is called when the sensor notifies the thermostat of an update.
+ * The thermostat checks the current temperature and adjusts its state accordingly:
+ * - If the temperature is below 15°C, it switches to heating mode.
+ *   @see ThermostatState::heat()
+ * - If the temperature is above 32.5°C, it switches to cooling mode.
+ *   @see ThermostatState::cool()
+ * - If the temperature is within a comfortable range, it idles.
+ *   @see ThermostatState::idle()
+ * 
+ * The current state and temperature are then displayed.
+ */
 void Thermostat::update()
 {
       //react to sensor data
@@ -71,13 +85,6 @@ void Thermostat::update()
 void Thermostat::setTemperature(double temperature)
 {
    this->temperature = temperature;
-   // if(temperature < 18.2) { // too hot, time to cool
-   //    this->heat();
-   // } else if(temperature > 32.5) {
-   //    this->cool();
-   // } else {
-   //    this->idle();
-   // }
 }
 
 double Thermostat::getTemperature()

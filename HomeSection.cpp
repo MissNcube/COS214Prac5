@@ -30,6 +30,15 @@ void HomeSection::removeRoom(Room *room)
 
 }
 
+/**
+ * @brief Displays the details of the home section and all its rooms.
+ * 
+ * This method outputs the name of the home section and then iterates 
+ * through all the rooms contained within the section, calling the 
+ * display method for each room to show its details.
+ * 
+ * @see Room::display() for details on how individual rooms are displayed.
+ */
 void HomeSection::display()
 {
     cout << "Home Section: " << name << endl;

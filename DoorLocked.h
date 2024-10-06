@@ -15,6 +15,11 @@ class DoorLocked : public DoorState
       DoorLocked();
       void lock(Door* door);
       void unlock(Door* door);
+     /**
+     * @brief Returns the name of the door state.
+     * 
+     * @return The string representation of the door state.
+     */
       string toString();
 };
 

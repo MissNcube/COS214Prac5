@@ -11,6 +11,18 @@ AllLightsOn::~AllLightsOn()
    // }
    //delete this;
 }
+
+/**
+ * @brief Executes the "All Lights Off" command.
+ * 
+ * This method checks the status of each light in the list and toggles it off if it is currently "On."
+ * It ensures that all connected lights are turned on.
+ * 
+ * The method iterates over the list of lights and calls Light::toggle() on any light that is still off.
+ * 
+ * @see Light::getStatus()
+ * @see Light::toggle()
+ */
 void AllLightsOn::execute()
 {
    cout << "All lights are on" << endl;

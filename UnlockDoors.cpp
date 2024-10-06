@@ -12,6 +12,20 @@ UnlockDoors::~UnlockDoors()
   // delete this;
 }
 
+/**
+ * @brief Unlocks all doors.
+ * 
+ * This method iterates through all the doors managed by the 
+ * `UnlockDoors` object and calls the `unlock()` method on each door 
+ * that is not null. It also outputs messages to indicate when the 
+ * unlocking starts and ends.
+ * 
+ * @note Only non-null doors will be unlocked.
+ * 
+ * @see Door::unlock() for the method that changes the state of a door.
+ * @see UnlockDoors::addDoor() for adding doors to the unlock list.
+ * @see UnlockDoors::removeDoor() for removing doors from the unlock list.
+ */
 void UnlockDoors::execute()
 {
    cout << "||Unlocking all doors||" << endl;

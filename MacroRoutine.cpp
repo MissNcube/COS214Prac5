@@ -25,6 +25,16 @@ void MacroRoutine::removeCommand(Command *command)
    }
 }
 
+/**
+ * @brief Executes the macro routine by executing all registered commands.
+ * 
+ * This method iterates through the list of commands stored in the commands vector
+ * and calls the execute() method on each command. It first prints a message indicating
+ * the start of the macro routine execution and, after all commands have been executed, 
+ * it prints a message indicating that the macro routine is done.
+ * 
+ * @see Command::execute() for the implementation details of the command execution.
+ */
 void MacroRoutine::execute()
 {
    cout << "||Macro routine: "<< this->name <<" executing||" << endl;

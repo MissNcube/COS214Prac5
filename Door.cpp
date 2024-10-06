@@ -45,6 +45,21 @@ void Door::display()
    cout << "======\n";
 }
 
+/**
+ * @brief Reacts to updates received from the sensor.
+ * 
+ * This method is called when a sensor detects an event (e.g., motion). It determines the door's current state
+ * and reacts accordingly. 
+ * 
+ * - If the door is unlocked and no motion is detected, the door will be locked by calling the lock() method.
+ * - If the door is locked and motion is detected, the door will be unlocked by calling the unlock() method.
+ * 
+ * After the action is taken, the method displays the current state of the door using the display() method.
+ * 
+ * @see DoorState::lock()
+ * @see DoorState::unlock()
+ * @see Door::display()
+ */
 void Door::update()
 {
    cout << "Door: Received update from sensor!" << endl;

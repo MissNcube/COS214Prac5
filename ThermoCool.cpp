@@ -14,6 +14,13 @@ void ThermoCool::cool(Thermostat *thermostat)
    thermostat->setTemperature(thermostat->getTemperature() - 10);
 }
 
+/**
+ * @brief Heat up the thermostat.
+ * 
+ * Increases the thermostat's temperature by 10 degrees and changes the status
+ * to ThermoHot.
+ * @param thermostat Pointer to the Thermostat object being controlled.
+ */
 void ThermoCool::heat(Thermostat *thermostat)
 {
    cout << "|Thermostat already cool, heating up|" << endl;
