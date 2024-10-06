@@ -7,7 +7,7 @@ TEST_TARGET = TestingMain
 DEMO_TARGET = DemoMain
 
 # Find all .cpp files except the mains and convert them to .o files
-SRCS = $(filter-out TestingMain.cpp DemoMain.cpp, $(wildcard *.cpp))
+SRCS = $(filter-out TestingMain.cpp DemoMain.cpp test.cpp, $(wildcard *.cpp))
 OBJS = $(SRCS:.cpp=.o)
 
 # Targets to choose
@@ -41,9 +41,14 @@ debug: $(TEST_TARGET)
 debug-demo: $(DEMO_TARGET)
 	gdb -ex run --args ./$(DEMO_TARGET) 2>&1 | tee gdb_log.txt
 
+# Run doctest unit tests
+test: Test.cpp $(OBJS)
+	$(CXX) $(CXXFLAGS) -o test_runner Test.cpp $(OBJS)
+	./test_runner
+
 # Clean up the build files
 clean:
-	rm -f $(OBJS) $(TEST_TARGET) $(DEMO_TARGET) TestingMain.o DemoMain.o valgrind_log.txt gdb_log.txt *.gcno *.gcda *.gcov
+	rm -f $(OBJS) $(TEST_TARGET) $(DEMO_TARGET) TestingMain.o DemoMain.o test_runner valgrind_log.txt gdb_log.txt *.gcno *.gcda *.gcov
 
 # Phony targets
-.PHONY: all run run-demo debug debug-demo clean
+.PHONY: all run run-demo debug debug-demo test clean
