@@ -128,9 +128,10 @@ TEST_CASE("Testing Integrator") {
 
     smartThermostat->cool();
     CHECK_EQ(smartThermostat->getStatus(), "Cool");
-
+    smartThermostat->display();
     smartThermostat->heat();
     CHECK_EQ(smartThermostat->getStatus(), "Hot");
+    smartThermostat->display();
 
     delete smartThermostat;
     delete legacyThermostat;
@@ -162,7 +163,7 @@ TEST_CASE("Testing Composite Pattern") {
     // Test locking all doors
     livingArea->lock();
     CHECK_EQ(door1->getStatus(), "Locked");
-    CHECK_EQ(door2->getStatus(), "Unlocked");
+    CHECK_EQ(door2->getStatus(), "Locked");
 
     delete livingArea;
     delete livingRoom;

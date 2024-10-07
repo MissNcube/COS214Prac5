@@ -20,6 +20,7 @@ public:
    void update(); // when there is a temperature change, it will notify the thermostat to work
    void setTemperature(double temperature);
    double getTemperature();
+   string getStatus();
    void cool();
    void heat();
    void idle();

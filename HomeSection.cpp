@@ -71,6 +71,7 @@ void HomeSection::lock()
     cout << "Locking all doors in the section: " << name << endl;
     for (Room* room : rooms) {
         room->lock();  // Locks all doors in each room
+        room->lock();
     }
 }
 
@@ -79,5 +80,6 @@ void HomeSection::unlock()
     cout << "Unlocking all doors in the section: " << name << endl;
     for (Room* room : rooms) {
         room->unlock();  // Unlocks all doors in each room
+        room->unlock();
     }
 }

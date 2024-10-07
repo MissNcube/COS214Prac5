@@ -63,6 +63,11 @@ double ThermoIntegrator::getTemperature()
    return this->legacyThermostat->getTemp();
 }
 
+string ThermoIntegrator::getStatus()
+{
+   return this->currentState->toString();
+}
+
 void ThermoIntegrator::cool()
 {
    this->legacyThermostat->activateCooling();
