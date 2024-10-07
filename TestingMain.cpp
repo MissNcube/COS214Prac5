@@ -302,10 +302,10 @@ void testObserver2()
 
 int main() {
    // testObserver();
-   // testObserver2();
-   // testCommand();
+   testObserver2();
+   testCommand();
    testComposite();
-   // testIntegrator();
-   // testStates();
+   testIntegrator();
+   testStates();
 }
 
