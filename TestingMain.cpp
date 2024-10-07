@@ -299,3 +299,13 @@ void testObserver2()
     delete thermostat;
 }
 
+
+int main() {
+   // testObserver();
+   // testObserver2();
+   // testCommand();
+   testComposite();
+   // testIntegrator();
+   // testStates();
+}
+

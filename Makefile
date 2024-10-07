@@ -1,54 +1,62 @@
 # Define the compiler and the flags
 CXX = g++
-CXXFLAGS = -fprofile-arcs -ftest-coverage -std=c++11 -g -Wall -Wextra -pedantic 
+CXXFLAGS = -std=c++11 -g -Wall -Wextra -pedantic
 
 # Define the target executables
-TEST_TARGET = TestingMain
-DEMO_TARGET = DemoMain
+TESTING_TARGET = testing
+DEMO_TARGET = demo
+UNIT_TEST_TARGET = unit
 
-# Find all .cpp files except the mains and convert them to .o files
-SRCS = $(filter-out TestingMain.cpp DemoMain.cpp test.cpp, $(wildcard *.cpp))
-OBJS = $(SRCS:.cpp=.o)
+# Find all .cpp files excluding main files
+COMMON_SRCS = $(filter-out TestingMain.cpp DemoMain.cpp Test.cpp, $(wildcard *.cpp))
+COMMON_OBJS = $(COMMON_SRCS:.cpp=.o)
 
-# Targets to choose
-all: $(TEST_TARGET)
+# Default target
+all: $(TESTING_TARGET) $(DEMO_TARGET) $(UNIT_TEST_TARGET)
 
-# Compile TestingMain target
-$(TEST_TARGET): $(OBJS) TestingMain.o
-	$(CXX) $(CXXFLAGS) -o $(TEST_TARGET) $(OBJS) TestingMain.o
+# Build the testing executable
+$(TESTING_TARGET): TestingMain.o $(COMMON_OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TESTING_TARGET) TestingMain.o $(COMMON_OBJS)
 
-# Compile DemoMain target
-$(DEMO_TARGET): $(OBJS) DemoMain.o
-	$(CXX) $(CXXFLAGS) -o $(DEMO_TARGET) $(OBJS) DemoMain.o
+# Build the demo executable
+$(DEMO_TARGET): DemoMain.o $(COMMON_OBJS)
+	$(CXX) $(CXXFLAGS) -o $(DEMO_TARGET) DemoMain.o $(COMMON_OBJS)
 
-# Compile source files into object files
+# Build the unit test executable
+$(UNIT_TEST_TARGET): Test.o $(COMMON_OBJS)
+	$(CXX) $(CXXFLAGS) -o $(UNIT_TEST_TARGET) Test.o $(COMMON_OBJS)
+
+# Compile the source files into object files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Run TestingMain with valgrind
-run: $(TEST_TARGET)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TEST_TARGET) 2> valgrind_log.txt
+# Run the testing executable with valgrind
+run: $(TESTING_TARGET)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TESTING_TARGET) 2> valgrind_log.txt
 
-# Run DemoMain with valgrind
-run-demo: $(DEMO_TARGET)
+# Run the demo executable with valgrind
+demo_run: $(DEMO_TARGET)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(DEMO_TARGET) 2> valgrind_log.txt
 
-# Run TestingMain with gdb
-debug: $(TEST_TARGET)
-	gdb -ex run --args ./$(TEST_TARGET) 2>&1 | tee gdb_log.txt
+# Run the unit test executable with valgrind
+unit_run: $(UNIT_TEST_TARGET)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(UNIT_TEST_TARGET) 2> valgrind_log.txt
 
-# Run DemoMain with gdb
-debug-demo: $(DEMO_TARGET)
+# Run the testing executable with gdb
+debug: $(TESTING_TARGET)
+	gdb -ex run --args ./$(TESTING_TARGET) 2>&1 | tee gdb_log.txt
+
+# Run the demo executable with gdb
+demo_debug: $(DEMO_TARGET)
 	gdb -ex run --args ./$(DEMO_TARGET) 2>&1 | tee gdb_log.txt
 
-# Run doctest unit tests
-test: Test.cpp $(OBJS)
-	$(CXX) $(CXXFLAGS) -o test_runner Test.cpp $(OBJS)
-	./test_runner
+# Run the unit test executable with gdb
+unit_debug: $(UNIT_TEST_TARGET)
+	gdb -ex run --args ./$(UNIT_TEST_TARGET) 2>&1 | tee gdb_log.txt
 
 # Clean up the build files
 clean:
-	rm -f $(OBJS) $(TEST_TARGET) $(DEMO_TARGET) TestingMain.o DemoMain.o test_runner valgrind_log.txt gdb_log.txt *.gcno *.gcda *.gcov
+	rm -f $(COMMON_OBJS) TestingMain.o DemoMain.o Test.o $(TESTING_TARGET) $(DEMO_TARGET) $(UNIT_TEST_TARGET) valgrind_log.txt gdb_log.txt
 
 # Phony targets
-.PHONY: all run run-demo debug debug-demo test clean
+.PHONY: all run demo_run unit_run debug demo_debug unit_debug clean
