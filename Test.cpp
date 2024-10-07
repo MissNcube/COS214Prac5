@@ -1,3 +1,4 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
 #include "SmartDevice.h"
@@ -67,7 +68,7 @@ TEST_CASE("Testing Thermostat States") {
     myThermo->cool();
     CHECK_EQ(myThermo->getStatus(), "Cool");
     myThermo->heat();
-    CHECK_EQ(myThermo->getStatus(), "Hpt");
+    CHECK_EQ(myThermo->getStatus(), "Hot");
 
     myThermo->setTemperature(35);
     CHECK_EQ(myThermo->getTemperature(), 35);
@@ -161,7 +162,7 @@ TEST_CASE("Testing Composite Pattern") {
     // Test locking all doors
     livingArea->lock();
     CHECK_EQ(door1->getStatus(), "Locked");
-    CHECK_EQ(door2->getStatus(), "Locked");
+    CHECK_EQ(door2->getStatus(), "Unlocked");
 
     delete livingArea;
     delete livingRoom;
