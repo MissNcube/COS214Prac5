@@ -28,7 +28,6 @@
 #include "MotionSensor.h"
 #include "HomeSection.h"
 
-
 void testStates() {
    cout << "==================Testing States==================\n";
    // Create a new Light object (starts in OffState)
@@ -300,12 +299,3 @@ void testObserver2()
     delete thermostat;
 }
 
-
-int main() {
-   testStates();
-   testCommand();
-   testIntegrator();
-   testComposite();
-   testObserver();
-   //testObserver2();
-}
