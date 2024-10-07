@@ -48,12 +48,16 @@ using namespace std;
 #define WHITE "\033[37m"
 #define BOLD "\033[1m"
 
-void printHeader(const std::string &title)
-{
-    // std::cout << BOLD << CYAN << std::setw(50) << std::setfill('=') << "\n" << RESET;
-    std::cout << BOLD << BLUE << std::setw(25) << title << RESET << "\n";
-    // std::cout << BOLD << CYAN << std::setw(50) << std::setfill('=') << "\n" << RESET;
-}
+// Emojis
+#define LIGHT_BULB "💡"
+#define DOOR "🚪"
+#define THERMOSTAT "🌡️"
+#define HOUSE "🏠"
+#define KEY "🔑"
+#define WELCOME "🙌"
+#define LOCK "🔒"
+#define UNLOCK "🔓"
+
 void typewriterEffect(const string &text, int delay)
 {
     for (const char &c : text)
@@ -64,28 +68,32 @@ void typewriterEffect(const string &text, int delay)
 }
 
 int main() {
-// cout
-//      << RESET << endl;
-//     typewriterEffect(GREEN BOLD "╔═══════════════════════════════════════════════════════════════════════╗\n", 30);
+cout
 
-//     // Middle text
-//     typewriterEffect("║                      Welcome to LEBO_DREY'S SMART HOME...             ║\n", 30);
+     << RESET << endl;
+    typewriterEffect(GREEN BOLD "╔═══════════════════════════════════════════════════════════════════════╗\n", 30);
 
-//     // Bottom border
-//     typewriterEffect("╚═══════════════════════════════════════════════════════════════════════╝\n", 30);
+    // Middle text
+    typewriterEffect("║                      Welcome to LEBO_DREY'S SMART HOME 🏠🏠...        ║\n", 30);
 
-//     typewriterEffect(YELLOW BOLD "Let's check our cool home system, shall we..??", 30);
-//     cout << endl
-//          << endl;
-//     typewriterEffect(YELLOW BOLD "Loading....", 50);
+    // Bottom border
+    typewriterEffect("╚═══════════════════════════════════════════════════════════════════════╝\n", 30);
 
-//     cout << RESET << endl
-//          << endl;
+    typewriterEffect(YELLOW BOLD "Let's check our cool home system, shall we..??", 30);
+    cout << endl
+         << endl;
+    typewriterEffect(YELLOW BOLD "Loading....", 50);
 
-//     typewriterEffect(YELLOW BOLD "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF", 50);
+    cout << RESET << endl
+         << endl;
 
-//     cout << RESET << endl
-//          << endl;
+    //typewriterEffect(YELLOW BOLD "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF", 50);
+    typewriterEffect(  HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE , 50);
+
+
+
+    cout << RESET << endl
+         << endl;
 
     cout << endl
          << endl;
@@ -93,10 +101,9 @@ int main() {
     // ==================Testing States==================
      typewriterEffect(MAGENTA BOLD "================== OUTPUTTING STATES ==================", 30);
      cout << RESET << endl << endl ;
+     
 
-    //std::cout << "==================Testing States==================\n";
-    // Testing Light States
-    std::cout << CYAN << "##############...LETS SEE THE LIGHTS...##############\n" << RESET <<endl;
+    std::cout << CYAN << "💡💡💡💡...LETS SEE THE LIGHTS ...💡💡💡💡💡\n" << RESET <<endl;
     Light* myLight = new Light();
     myLight->display();
 
@@ -110,21 +117,21 @@ int main() {
     cout << endl;
 
     // Testing Door States
-    std::cout << CYAN << "##############...LETS SEE THE DOORS...##############\n" << RESET <<endl;
+    std::cout << CYAN << "🚪🚪🚪🚪...LETS SEE THE DOORS...🚪🚪🚪🚪\n" << RESET <<endl;
     Door* myDoor = new Door();
     myDoor->display();
     cout << endl;
-    cout << UNDERLINE<< "---------- Lock doors ----------" << RESET << endl << endl;
+    cout << UNDERLINE<< "🔒🔒🔒 Lock doors 🔒🔒🔒" << RESET << endl << endl;
     myDoor->lock();
     myDoor->display();
     cout << endl;
-    cout << UNDERLINE<< "---------- Unlock doors ----------" << RESET << endl << endl;
+    cout << UNDERLINE<< "🔓🔓🔓 Unlock doors 🔓🔓🔓" << RESET << endl << endl;
     myDoor->unlock();
     myDoor->display();
     cout << endl;
 
     // Testing Thermostat States
-    std::cout << CYAN << "##############...LETS SEE THE THERMOSTAT...##############\n" << RESET <<endl;
+    std::cout << CYAN << "🌡️🌡️🌡️...LETS SEE THE THERMOSTAT...🌡️🌡️🌡️\n" << RESET <<endl;
     Thermostat* myThermo = new Thermostat();
     myThermo->display();
 
@@ -191,7 +198,7 @@ int main() {
     lightsOff->addLights(livingRoomLight);
     lightsOff->addLights(kitchenLight);
 
-     typewriterEffect(MAGENTA BOLD "================== WELCOME BACK HOME ROUTINE ==================", 30);
+     typewriterEffect(MAGENTA BOLD "🙌🙌🙌🙌 WELCOME BACK HOME ROUTINE 🙌🙌🙌🙌", 30);
      cout << RESET << endl << endl ;
     MacroRoutine* goodeveningRoutine = new MacroRoutine("Welcome Back");
 
@@ -209,7 +216,7 @@ int main() {
      cout << endl;
 
 
-     typewriterEffect(MAGENTA BOLD "================== GOODNIGHT MACROROUTINE ==================", 30);
+     typewriterEffect(MAGENTA BOLD "🌙🌙🌙 GOODNIGHT MACROROUTINE 🌙🌙🌙", 30);
      cout << RESET << endl << endl ;
 
     MacroRoutine* goodnightRoutine = new MacroRoutine("GoodNight");
@@ -243,7 +250,7 @@ int main() {
     cout << endl;
 
     // ==================Testing Integrator==================
-    typewriterEffect(MAGENTA BOLD "================== LET US INTEGRATE OUR THERMOSTAT TO OUR SMART HOME ==================", 30);
+    typewriterEffect(MAGENTA BOLD "🌡️🌡️🌡️ LET US INTEGRATE OUR THERMOSTAT TO OUR SMART HOME 🌡️🌡️🌡️", 30);
      cout << RESET << endl << endl ;
     LegacyThermostat* legacyThermostat = new LegacyThermostat();
     ThermoIntegrator* smartThermostat = new ThermoIntegrator(legacyThermostat);
@@ -274,7 +281,7 @@ int main() {
     delete legacyThermostat;
 
     // ==================Testing Composite==================
-     typewriterEffect(MAGENTA BOLD "================== LETS SEE HOW THE SMART DEVICES ARE ARRANGED IN EACH ROOM IN OUR HOME ==================", 30);
+     typewriterEffect(MAGENTA BOLD "💻💻💻 LETS SEE 👀 HOW THE SMART DEVICES ARE ARRANGED IN EACH ROOM IN OUR HOME 💻💻💻", 30);
      cout << RESET << endl << endl ;    
      HomeSection* livingArea = new HomeSection("Living Area");
     Room* livingRoom = new Room("Living Room");
@@ -319,7 +326,7 @@ int main() {
     cout << endl << endl;
 
     // ==================Testing Observer==================
-     typewriterEffect(MAGENTA BOLD "================== OBSERVING THE SENSORS IN OUR SMART HOME ==================", 30);
+     typewriterEffect(MAGENTA BOLD "👀👀👀 OBSERVING THE SENSORS IN OUR SMART HOME 👀👀👀", 30);
      cout << RESET << endl << endl ;    
      HeatSensor* heatSensor = new HeatSensor();
     MotionSensor* motionSensor = new MotionSensor();
@@ -330,23 +337,23 @@ int main() {
     heatSensor->addDevice(thermostat);
     motionSensor->addDevice(door);
 
-     typewriterEffect(BLUE BOLD "================== Heat Sensor Detects a Temperature Change of 35 ==================", 30);
+     typewriterEffect(BLUE BOLD "🥵🥵🥵 Heat Sensor Detects a Temperature Change of 35 🥵🥵🥵", 30);
      cout << RESET << endl << endl ;
 
     thermostat->setTemperature(35.0);
     heatSensor->detectChange();
 
-    typewriterEffect(BLUE BOLD "================== Motion Sensor Detects Motion ==================", 30);
+    typewriterEffect(BLUE BOLD "🏃‍♂️🏃‍♂️🏃‍♂️ Motion Sensor Detects Motion 🏃‍♂️🏃‍♂️🏃‍♂️", 30);
      cout << RESET << endl << endl ;
 
     motionSensor->detectChange();
-    typewriterEffect(BLUE BOLD "================== Heat Sensor Detects Another Temperature Change of 15 ==================", 30);
+    typewriterEffect(BLUE BOLD "🥶🥶🥶 Heat Sensor Detects Another Temperature Change of 15 🥶🥶🥶", 30);
      cout << RESET << endl << endl ;
 
     thermostat->setTemperature(15.0);
     heatSensor->detectChange();
 
-    typewriterEffect(BLUE BOLD "================== Motion Detected Near the Door ==================", 30);
+    typewriterEffect(BLUE BOLD "🏃‍♂️🏃‍♂️🏃‍♂️ Motion Detected Near the Door 🏃‍♂️🏃‍♂️🏃‍♂️", 30);
      cout << RESET << endl << endl ;
     motionSensor->detectChange();
 
@@ -355,7 +362,7 @@ int main() {
     delete thermostat;
     delete door;
 
-    typewriterEffect(RED BOLD UNDERLINE" <<<<<<<<<<<<< THANK YOU FOR STOPPING BY OUR HOME, SEE YOU SOON >>>>>>>>>>>>>", 30);
+    typewriterEffect(RED BOLD UNDERLINE" <<<<<<<<<<<<<✌️✌️✌️ THANK YOU FOR STOPPING BY OUR HOME, SEE YOU SOON ✌️✌️✌️ >>>>>>>>>>>>>", 30);
      cout << RESET << endl << endl << RESET ;
     return 0;
 }
